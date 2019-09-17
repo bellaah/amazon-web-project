@@ -1,14 +1,36 @@
-#mini-carousel-container {
+.mini-carousel-container {
   display: flex;
-  flex-direction: inherit;
+  flex-direction: row;
   margin: 1rem;
-  padding: 2rem; }
+  padding: 4rem;
+  width: 70rem; }
+  .mini-carousel-container div {
+    height: 12rem; }
 
-#description-container {
+.description-container {
   display: flex;
   flex-direction: column; }
+  .description-container .description-text {
+    margin: 0.8rem 0rem;
+    width: 28rem; }
+  .description-container .description-header {
+    font-size: 2.5rem; }
 
-#description-text {
-  margin: 0.2rem 0rem 0.8rem 0rem; }
+.mini-carousel-center {
+  width: 15rem;
+  display: -webkit-inline-box;
+  overflow: hidden; }
+  .mini-carousel-center ol {
+    display: flex;
+    position: relative;
+    left: -15rem;
+    margin: 0;
+    padding: 0; }
+    .mini-carousel-center ol img {
+      height: 12rem;
+      width: 15rem; }
+
+.mini-carousel-right {
+  margin-right: 2rem; }
 
 /*# sourceMappingURL=miniCarousel.css.map */

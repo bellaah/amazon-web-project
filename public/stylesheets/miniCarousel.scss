@@ -1,0 +1,48 @@
+$mini-carousel-height: 12rem;
+$mini-carousel-width: 15rem;
+
+.mini-carousel-container{
+    display: flex;
+    flex-direction: row;
+    margin: 1rem;
+    padding: 4rem;
+    width: 70rem;
+    div{
+        height: $mini-carousel-height;
+    }
+}
+
+.description-container{
+    display: flex;
+    flex-direction: column;
+    .description-text{
+        margin: 0.8rem 0rem;
+        width: 28rem;
+    }
+    .description-header{
+        font: {
+            size: 2.5rem;
+        }
+    }
+}
+
+.mini-carousel-center{
+    width: $mini-carousel-width;
+    display: -webkit-inline-box;
+    overflow: hidden;
+    ol{
+        display: flex;
+        position: relative;
+        left: -$mini-carousel-width;
+        margin: 0;
+        padding: 0;
+        img{
+            height: $mini-carousel-height;
+            width: $mini-carousel-width;
+        }
+    }
+}
+
+.mini-carousel-right{
+    margin-right: 2rem;
+}
