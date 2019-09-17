@@ -10,14 +10,27 @@ function $(name){
 
 const makeInnerHTML = () => {
     let liTag = new miniCarousel();
-    let slideImg = new slide();
     let imgList = liTag.render();
-    // setTimeout(()=>{
-        
-    // },1000);
     miniImgList.innerHTML = imgList;
-
+    setInterval(() => {
+        autoSlide();
+    },3000);
+    autoSlide();
 }
+
+const autoSlide = () => {
+    let moveChild = miniImgList.firstElementChild.outerHTML;
+    miniImgList.removeChild(miniImgList.firstElementChild);
+    miniImgList.style.left = "0";
+    miniImgList.style.transform = "none";
+    miniImgList.style.transition = "0s";
+    setTimeout(()=>{
+        miniImgList.style.transform = "translate(-15rem,0)";
+        miniImgList.style.transition = "0.3s";
+        miniImgList.insertAdjacentHTML("beforeend", moveChild);
+    },300);
+}
+
 makeInnerHTML();
 
 

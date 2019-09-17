@@ -25,12 +25,18 @@
     position: relative;
     left: -15rem;
     margin: 0;
-    padding: 0; }
+    padding: 0;
+    list-style: none; }
     .mini-carousel-center ol img {
       height: 12rem;
       width: 15rem; }
 
 .mini-carousel-right {
   margin-right: 2rem; }
+
+.slideRun {
+  left: 0;
+  transform: translateX(-15rem);
+  transition-duration: 300ms; }
 
 /*# sourceMappingURL=miniCarousel.css.map */
