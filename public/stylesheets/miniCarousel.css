@@ -1,3 +1,21 @@
+body, header, ol {
+  margin: 0; }
+
+header {
+  width: 100%;
+  height: 4rem;
+  display: flex;
+  background-color: #232f3e; }
+
+.amazon-logo {
+  margin: 1rem;
+  width: 97px;
+  height: 30px;
+  text-indent: -500px;
+  background-size: 350px;
+  background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-2x_optimized_layout1._CB468670774_.png);
+  background-position: -10px -51px; }
+
 .mini-carousel-container {
   display: flex;
   flex-direction: row;
@@ -18,25 +36,20 @@
 
 .mini-carousel-center {
   width: 15rem;
+  height: 12rem;
   display: -webkit-inline-box;
   overflow: hidden; }
   .mini-carousel-center ol {
     display: flex;
     position: relative;
     left: -15rem;
-    margin: 0;
     padding: 0;
     list-style: none; }
     .mini-carousel-center ol img {
-      height: 12rem;
-      width: 15rem; }
+      width: 15rem;
+      height: 12rem; }
 
 .mini-carousel-right {
   margin-right: 2rem; }
-
-.slideRun {
-  left: 0;
-  transform: translateX(-15rem);
-  transition-duration: 300ms; }
 
 /*# sourceMappingURL=miniCarousel.css.map */
