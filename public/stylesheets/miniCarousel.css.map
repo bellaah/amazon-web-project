@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "miniCarousel.css",
+	"sources": [
+		"miniCarousel.sass"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,wBAAwB,CAAC;EACrB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,OAAO;EACvB,MAAM,EAAE,IAAI;EACZ,OAAO,EAAE,IAAI,GAAG;;AAEpB,AAAA,sBAAsB,CAAC;EACnB,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM,GAAG;;AAE7B,AAAA,iBAAiB,CAAC;EACd,MAAM,EAAE,uBAAuB,GAAG"
+}
