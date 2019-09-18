@@ -13,14 +13,14 @@ const makeInnerHTML = () => {
     let imgList = liTag.render();
     miniImgList.innerHTML = imgList;
     setInterval(() => {
-        autoSlide();
+       slideLeft();
     },3000);
-    autoSlide();
 }
 
 const autoSlide = () => {
     let moveChild = miniImgList.firstElementChild.outerHTML;
     miniImgList.removeChild(miniImgList.firstElementChild);
+    
     miniImgList.style.left = "0";
     miniImgList.style.transform = "none";
     miniImgList.style.transition = "0s";
@@ -28,6 +28,20 @@ const autoSlide = () => {
         miniImgList.style.transform = "translate(-15rem,0)";
         miniImgList.style.transition = "0.3s";
         miniImgList.insertAdjacentHTML("beforeend", moveChild);
+    },300);
+}
+
+const slideLeft = () => {
+    let moveChild = miniImgList.lastElementChild.outerHTML;
+    miniImgList.removeChild(miniImgList.lastElementChild);
+
+    miniImgList.style.transform = "translate(+15rem,0)";
+    miniImgList.style.transition = "0.3s";
+
+    setTimeout(()=>{
+        miniImgList.style.transform = "none";
+        miniImgList.style.transition = "0s";
+        miniImgList.insertAdjacentHTML("afterbegin", moveChild);
     },300);
 }
 
