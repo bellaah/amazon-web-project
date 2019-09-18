@@ -82,7 +82,6 @@ header{
         margin: 1.5rem;
     }
     .main-carousel-bottom-center{
-        padding: 2rem;
         overflow: hidden;
     }
     
@@ -121,7 +120,7 @@ header{
 
 .main-list{
     width: auto;
-    width: $main-carousel-bottom-width;
+    left: -60rem;
     li{
         @include set-width-height($main-carousel-bottom-width,$main-carousel-bottom-height);
         .main-text{

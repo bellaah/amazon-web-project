@@ -1,6 +1,5 @@
 class slide{
     constructor(olName,carouselName,width){
-        this.classname = olName;
         this.carousel = document.querySelector(`.${carouselName}`);
         this.ol = document.querySelector(`.${olName}`);
         this.leftBtn = `${carouselName}-left-btn`;
@@ -47,32 +46,31 @@ class slide{
             addPosition = "beforeend";
             moveIdx = this.ol.firstElementChild;
             param = [{translate:"none",time:"0s",left:"0"},
-                    {translate:`translate(-${this.width},0)`,time:"0.3s"}];
+                    {translate:`translate(-${this.width}rem,0)`,time:"0.3s"}];
         }else{
             addPosition = "afterbegin";
             moveIdx = this.ol.lastElementChild;
-            param = [{translate:`translate(+${this.width},0)`,time:"0.3s"},
-                    {translate:"none",time:"0s",left:`-${this.width}`}];
+            param = [{translate:`translate(+${this.width}rem,0)`,time:"0.3s",left:`-${this.width}rem`},
+                    {translate:"none",time:"0s"}];
         }
        
         let moveChildText = moveIdx.outerHTML;
         this.ol.removeChild(moveIdx);
         this.translate(param[0]);
 
-        setTimeout(()=>{
-            this.translate(param[1]);
+        setTimeout(async()=>{
             this.ol.insertAdjacentHTML(addPosition, moveChildText);
+            this.translate(param[1]);
         },300);
             
     }
 
     translate(obj){
-        console.log(obj);
-        this.ol.style.transform = obj.translate;
-        this.ol.style.transition = obj.time;
         if(obj.left !== undefined){
             this.ol.style.left = obj.left;
         }
+        this.ol.style.transform = obj.translate;
+        this.ol.style.transition = obj.time;
     }
 }
 

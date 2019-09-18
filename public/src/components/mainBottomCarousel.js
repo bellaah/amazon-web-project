@@ -2,7 +2,7 @@ import data  from '../data/bottomData.js';
 import slide  from './slide.js';
 class mainCarousel extends slide{
     constructor(){
-        super("main-list","main-carousel-bottom","60rem");
+        super("main-list","main-carousel-bottom","60");
     }
     render(){
         let childHTML = "";

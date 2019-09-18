@@ -4,8 +4,7 @@ import mainBottomCarousel from './src/components/mainBottomCarousel.js';
 
 let mini = new miniCarousel();
 mini.makeInnerHTML();
-// mini.run();
+mini.run();
 
 let main = new mainBottomCarousel();
 main.makeInnerHTML();
-// main.run();

@@ -2,7 +2,7 @@ import imgURL  from '../data/miniData.js';
 import slide  from './slide.js';
 class miniCarousel extends slide{
     constructor(){
-        super("mini-list","mini-carousel","15rem");
+        super("mini-list","mini-carousel","15");
     }
 
     render(){
