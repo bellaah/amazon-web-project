@@ -20,6 +20,14 @@ $primeNavy:#232f3e;
     transition: $transition;
 }
 
+@mixin set-button-image($url){
+    width: 1rem;
+    height: 1rem;
+    background-image: url($url);
+    background-size: 1rem;
+    border: none;
+}
+
 body,header,ol{
     margin: 0;
     font-family: 'Amazon Ember', Tahoma, Arial, sans-serif;
@@ -40,6 +48,11 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+
+button,button:focus,button:active{
+    border: 0;
+    outline: 0;
 }
 
 button:hover{
@@ -71,6 +84,17 @@ header{
     div{
         height: $mini-carousel-height;
         margin: 1.5rem;
+    }
+    .mini-carousel-side{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .mini-carousel-left-btn{
+        @include set-button-image('../../images/left-chevron.png');
+    }
+    .mini-carousel-right-btn{
+        @include set-button-image('../../images/right-chevron.png');
     }
 }
 
