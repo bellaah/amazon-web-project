@@ -2,20 +2,8 @@ import data  from '../data/bottomData.js';
 import slide  from './slide.js';
 class mainCarousel extends slide{
     constructor(){
-        super("main-list","main-carousel-bottom");
+        super("main-list","main-carousel-bottom","60rem");
     }
-/**
- * 
- <li>
-    <div class="main-text">
-        <span class="main-text-header">Fast, FREE delivery on over 100 million items</span>
-        <div class="main-text-description">Super-fast delivery, tens of millions of items, and flexible delivery options to fit your life. Plus, Prime members get FREE One-Day Delivery on tens of millions of items.</div>
-        <a class="main-text-link" href="https://www.amazon.com/b?node=15247183011">
-            Explore Prime Delivery >
-        </a>
-    </div>
-</li>
- */
     render(){
         let childHTML = "";
         data.forEach(obj => {

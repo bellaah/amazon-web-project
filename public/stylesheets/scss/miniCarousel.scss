@@ -77,14 +77,13 @@ header{
 .main-carousel-bottom{
     display: flex;
     flex-direction: row;
-    margin: 1rem;
-    padding: 4rem;
     width: 70rem;
     div{
         margin: 1.5rem;
     }
     .main-carousel-bottom-center{
         padding: 2rem;
+        overflow: hidden;
     }
     
 }
@@ -107,8 +106,9 @@ header{
     @include mini-carousel-size;
     display: -webkit-inline-box;
     overflow: hidden;
-    ol{
+    .mini-list{
         left: -$mini-carousel-width;
+        width: 60rem;
         img{
             @include mini-carousel-size;
         }
@@ -119,22 +119,9 @@ header{
     margin-right: 2rem;
 }
 
-.trans-none{
-    @include set-transform(none,0s);
-}
-
-.trans-left{
-    @include set-transform(translate(-15rem,0),0.3s);
-}
-
-.trans-right{
-    @include set-transform(translate(+15rem,0),0.3s);
-}
-
 .main-list{
-    width: 60rem;
-    //width: $main-carousel-bottom-width;
-    overflow: hidden;
+    width: auto;
+    width: $main-carousel-bottom-width;
     li{
         @include set-width-height($main-carousel-bottom-width,$main-carousel-bottom-height);
         .main-text{
