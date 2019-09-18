@@ -1,4 +1,4 @@
-import imgURL  from '../data/miniCarouselImg.js';
+import imgURL  from '../data/miniData.js';
 import slide  from './slide.js';
 class miniCarousel extends slide{
     constructor(){

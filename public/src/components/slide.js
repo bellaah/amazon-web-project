@@ -3,31 +3,40 @@ class slide{
         this.classname = olName;
         this.carousel = document.querySelector(`.${carouselName}`);
         this.ol = document.querySelector(`.${olName}`);
-        this.leftBtn = document.querySelector(`.${carouselName}-left-btn`);
-        this.rightBtn = document.querySelector(`.${carouselName}-right-btn`);
+        this.leftBtn = `${carouselName}-left-btn`;
+        this.rightBtn = `${carouselName}-right-btn`;
+        this.lastTime = new Date().valueOf();
+
+        this.makeInnerHTML();
         this.addEventListener();
     }
     
     addEventListener(){
         this.carousel.addEventListener("click",(evt)=>{
-            console.log(evt.target.className);
-            if(evt.target.className === this.leftBtn.className) {
+            if(evt.target.className === this.leftBtn) {
                 this.slide(false);
-            }else if(evt.target.className === this.rightBtn.className){
+                this.lastTime = new Date().valueOf();
+            }else if(evt.target.className === this.rightBtn){
                 this.slide(true);
+                this.lastTime = new Date().valueOf();
             }
         });
     }
-    
+
     makeInnerHTML(){
         let child = this.render();
         this.ol.innerHTML = child;
     }
 
     run(){
-        setInterval(() => {
+        let now = new Date().valueOf();
+        if(now - this.lastTime >= 3000){
             this.slide(true);
-        },3000);
+            this.lastTime = new Date().valueOf();
+        }
+        setTimeout(()=>{
+            this.run();
+        },500);
     }
 
     slide(direction){  //direction:true(left),direction:false(right)
