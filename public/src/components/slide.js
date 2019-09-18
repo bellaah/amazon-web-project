@@ -6,6 +6,9 @@ class slide{
         this.leftBtn = `${carouselName}-left-btn`;
         this.rightBtn = `${carouselName}-right-btn`;
         this.lastTime = new Date().valueOf();
+        this.width = document.querySelector(`.${olName}`).style.width;
+        console.log(olName);
+        console.log(this.width);
 
         this.makeInnerHTML();
         this.addEventListener();
@@ -49,7 +52,7 @@ class slide{
         }else{
             addPosition = "afterbegin";
             moveIdx = this.ol.lastElementChild;
-            classList = [{classname:"trans-right"},{classname:"trans-none",left:"-15rem"}];
+            classList = [{classname:"trans-right"},{classname:"trans-none",left:`-15rem`}];
         }
        
         let moveChildText = moveIdx.outerHTML;
