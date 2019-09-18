@@ -16,13 +16,13 @@ header {
   background-image: url(https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global_bluebeacon-2x_optimized_layout1._CB468670774_.png);
   background-position: -10px -51px; }
 
-.mini-carousel-container {
+.mini-carousel {
   display: flex;
   flex-direction: row;
   margin: 1rem;
   padding: 4rem;
   width: 70rem; }
-  .mini-carousel-container div {
+  .mini-carousel div {
     height: 12rem; }
 
 .description-container {

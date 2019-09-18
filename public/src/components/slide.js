@@ -1,7 +1,22 @@
 class slide{
-    constructor(ol){
-        this.classname = ol;
-        this.ol = document.querySelector(`.${ol}`);
+    constructor(olName,carouselName){
+        this.classname = olName;
+        this.carousel = document.querySelector(`.${carouselName}`);
+        this.ol = document.querySelector(`.${olName}`);
+        this.leftBtn = document.querySelector(`.${carouselName}-left-btn`);
+        this.rightBtn = document.querySelector(`.${carouselName}-right-btn`);
+        this.addEventListener();
+    }
+    
+    addEventListener(){
+        this.carousel.addEventListener("click",(evt)=>{
+            console.log(evt.target.className);
+            if(evt.target.className === this.leftBtn.className) {
+                this.slide(false);
+            }else if(evt.target.className === this.rightBtn.className){
+                this.slide(true);
+            }
+        });
     }
     
     makeInnerHTML(){
@@ -16,16 +31,16 @@ class slide{
     }
 
     slide(direction){  //direction:true(left),direction:false(right)
-        let moveIdx,classList,addPosition;
+        let addPosition,moveIdx,classList;
 
         if(direction){
+            addPosition = "beforeend";
             moveIdx = this.ol.firstElementChild;
             classList = [{classname:"trans-none",left:"0"},{classname:"trans-left"}];
-            addPosition = "beforeend";
         }else{
+            addPosition = "afterbegin";
             moveIdx = this.ol.lastElementChild;
             classList = [{classname:"trans-right"},{classname:"trans-none",left:"-15rem"}];
-            addPosition = "afterbegin";
         }
        
         let moveChildText = moveIdx.outerHTML;
@@ -37,7 +52,7 @@ class slide{
             this.ol.insertAdjacentHTML(addPosition, moveChildText);
         },300);
     }
-    
+
     translate(obj){
         this.ol.className = this.classname;
         this.ol.classList.add(obj.classname);

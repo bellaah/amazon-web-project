@@ -2,9 +2,9 @@ import imgURL  from '../data/miniCarouselImg.js';
 import slide  from './slide.js';
 class miniCarousel extends slide{
     constructor(){
-        super("mini-img-list");
+        super("mini-img-list","mini-carousel");
     }
-    
+
     render(){
         let liTemplateLiteral = "";
         imgURL.forEach(img => {
