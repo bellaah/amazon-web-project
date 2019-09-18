@@ -1,5 +1,10 @@
 import imgURL  from '../data/miniCarouselImg.js';
-class miniCarousel{
+import slide  from './slide.js';
+class miniCarousel extends slide{
+    constructor(){
+        super("mini-img-list");
+    }
+    
     render(){
         let liTemplateLiteral = "";
         imgURL.forEach(img => {
@@ -7,7 +12,7 @@ class miniCarousel{
 <li>
     <img src="${img}"></img>
 </li>`
-        });
+ });
         return liTemplateLiteral;
     }
 }

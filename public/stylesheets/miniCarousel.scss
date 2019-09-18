@@ -7,9 +7,14 @@ $primeNavy:#232f3e;
     height: $mini-carousel-height;
 }
 
-@mixin width-height($width, $height){
+@mixin set-width-height($width, $height){
     width: $width;
     height: $height;
+}
+
+@mixin set-transform($transform,$transition){
+    transform: $transform;
+    transition: $transition;
 }
 
 body,header,ol{
@@ -17,14 +22,14 @@ body,header,ol{
 }
 
 header{
-    @include width-height(100%,4rem);
+    @include set-width-height(100%,4rem);
     display: flex;
     background-color: $primeNavy;
 }
 
 .amazon-logo{
     margin: 1rem;
-    @include width-height(97px,30px);
+    @include set-width-height(97px,30px);
     text-indent: -500px;
     background: {
         size: 350px;
@@ -76,4 +81,16 @@ header{
 
 .mini-carousel-right{
     margin-right: 2rem;
+}
+
+.trans-none{
+    @include set-transform(none,0s);
+}
+
+.trans-left{
+    @include set-transform(translate(-15rem,0),0.3s);
+}
+
+.trans-right{
+    @include set-transform(translate(+15rem,0),0.3s);
 }
