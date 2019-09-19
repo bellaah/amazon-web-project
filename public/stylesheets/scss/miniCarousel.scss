@@ -30,8 +30,11 @@ $primeNavy:#232f3e;
 @mixin set-button-image($url,$size){
     width: $size;
     height: $size;
-    background-image: url($url);
-    background-size: $size;
+    background: {
+        color: transparent;
+        image: url($url);
+        size: $size;
+    }
     border: none;
 }
 
@@ -47,7 +50,7 @@ header{
 }
 
 .amazon-logo{
-    margin: 1rem;
+    margin: 1.4rem;
     @include set-width-height(97px,30px);
     background: {  
         size: 350px;
@@ -59,8 +62,8 @@ header{
 .mini-carousel{
     @include set-display-flex-direction(row);
     margin: 1rem;
-    margin-left: 10%;
-    padding: 4rem;
+    margin-left: 12%;
+    padding: 3rem;
     div{
         height: $mini-carousel-height;
         margin: 1.5rem;
@@ -104,14 +107,12 @@ header{
 
 .main-carousel-bottom{
     @include set-display-flex-direction(row);
-    margin-left: 7%;
+    margin-left: 10%;
     width: fit-content;
-    div{
-        margin: 1.5rem;
-    }
     .main-carousel-bottom-center{
         overflow: hidden;
         width: $main-carousel-bottom-width;
+        margin-right: 1.5rem;
         .main-list{
             width: auto;
             left: -$main-carousel-bottom-width;
@@ -174,30 +175,53 @@ header{
 .main-carousel-top{
     @include set-display-flex-direction(row);
     justify-content: space-between;
-    width: 50rem;
+    @include set-width-height(50rem,15rem);
+    margin-top: 2rem;
     margin-left: 20%;
 
-    .main-carousel-top-card-back{
+    .main-carousel-top-card{
         @include set-width-height($small-card-width,$small-card-height);
+        position: relative;
+        text-align: center;
 
-        .main-carousel-top-card{
+        .main-carousel-top-card-back{
+            @include set-width-height($small-card-width,$small-card-height);
+            display: none;
+            z-index: 5;
+            flex-direction: column-reverse;
+            align-items: center;
+            position: absolute;
+            transform: scale(1.2);
+            padding-bottom: 0.5rem;
+
+            .main-carousel-top-button-list{
+                width: fit-content;
+                display: flex;
+                .main-carousel-top-button{
+                    align-self: center;
+                    @include set-button-image('../../images/circle.png',0.5rem);
+                }
+            }
+        }
+        .main-carousel-top-card-title{
+            z-index: 100;
+            text-align: center;
+            position: absolute;
+            color: white;
+            bottom: 24px;
+            width: 100%;
+            font-size: 20px;
+            font-family: initial;
+        }
+
+        .main-carousel-top-card-center{
             @include set-width-height($small-card-width,$small-card-height);
             background-color: transparent;
             position: relative;
             left: 0;
-            text-align: center;
             background-size: 1200px auto, 100% 100%;
-
-            .main-carousel-top-card-title{
-                text-align: center;
-                position: absolute;
-                color: white;
-                bottom: 24px;
-                width: 100%;
-                font-size: 20px;
-                font-weight: initial;
-            }
         }
+
     }
 
 }
