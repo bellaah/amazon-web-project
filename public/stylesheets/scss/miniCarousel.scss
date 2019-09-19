@@ -9,6 +9,7 @@ $read-color: #36C2B4;
 $more-color: #FFC400;
 $small-card-width: 150px;
 $small-card-height: 210px;
+$font-stack: ('Helvetica', 'Arial', sans-serif);
 
 $primeNavy:#232f3e;
 
@@ -109,6 +110,7 @@ header{
     @include set-display-flex-direction(row);
     margin-left: 10%;
     width: fit-content;
+    margin-bottom: 3rem;
     .main-carousel-bottom-center{
         overflow: hidden;
         width: $main-carousel-bottom-width;
@@ -199,6 +201,7 @@ header{
                 display: flex;
                 .main-carousel-top-button{
                     align-self: center;
+                    opacity: 0.5;
                     @include set-button-image('../../images/circle.png',0.5rem);
                 }
             }
@@ -224,4 +227,8 @@ header{
 
     }
 
+}
+
+.main-carousel-top-button:active{
+    opacity: 1;
 }

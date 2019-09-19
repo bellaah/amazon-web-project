@@ -10,7 +10,12 @@ class card{
         this.parent.addEventListener("click",(evt)=>{
             if(evt.target.className === "main-carousel-top-card-center") {
                 this.reduceCardAll();
+                let firstBtn = evt.target.parentElement.querySelector(".main-carousel-top-button");
+                this.changeOpacity(firstBtn);
                 this.expandCard(evt.target);
+            }else if(evt.target.className === "main-carousel-top-button"){
+                this.resetOpacityAll(evt.target.className);
+                this.changeOpacity(evt.target);
             }
         });
     }
@@ -29,6 +34,17 @@ class card{
             item.style.zIndex = "0";
         })
     }
+
+    changeOpacity(target){
+        target.style.opacity = "1";
+    }
+
+    resetOpacityAll(className){
+        let list = document.querySelectorAll(`.${className}`);
+        list.forEach(item => {
+            item.style.opacity = "0.5";
+        })
+    } 
 
     render(){
         let childHTML = "";
