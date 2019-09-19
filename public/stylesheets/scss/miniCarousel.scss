@@ -7,6 +7,8 @@ $stream-color: #FF6138;
 $shop-color: #E31F64;
 $read-color: #36C2B4;
 $more-color: #FFC400;
+$small-card-width: 150px;
+$small-card-height: 210px;
 
 $primeNavy:#232f3e;
 
@@ -119,6 +121,12 @@ header{
                     margin-top:3rem;
                     width: 30rem;
                     margin-left: 30rem;
+                    .main-text-title{
+                        display: inline-block;
+                        margin: 0.5rem 0;
+                        color: white;
+                        padding: 0.3rem;
+                    }
                     .main-text-header{
                         font-size: 1.5rem;
                     }
@@ -163,9 +171,33 @@ header{
     background-color: $more-color;
 }
 
-.main-text-title{
-    display: inline-block;
-    margin: 0.5rem 0;
-    color: white;
-    padding: 0.3rem;
+.main-carousel-top{
+    @include set-display-flex-direction(row);
+    justify-content: space-between;
+    width: 50rem;
+    margin-left: 20%;
+
+    .main-carousel-top-card-back{
+        @include set-width-height($small-card-width,$small-card-height);
+
+        .main-carousel-top-card{
+            @include set-width-height($small-card-width,$small-card-height);
+            background-color: transparent;
+            position: relative;
+            left: 0;
+            text-align: center;
+            background-size: 1200px auto, 100% 100%;
+
+            .main-carousel-top-card-title{
+                text-align: center;
+                position: absolute;
+                color: white;
+                bottom: 24px;
+                width: 100%;
+                font-size: 20px;
+                font-weight: initial;
+            }
+        }
+    }
+
 }
