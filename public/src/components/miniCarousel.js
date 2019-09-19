@@ -14,7 +14,7 @@ class miniCarousel extends slide{
         <img src="${obj.image}"></img>
     </a>
 </li>`
- });
+    });
         return childHTML;
     }
 }

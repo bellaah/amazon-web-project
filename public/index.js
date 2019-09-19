@@ -1,4 +1,4 @@
-import card from './src/components/card.js';
+import card from './src/components/mainTopCard.js';
 import miniCarousel from './src/components/miniCarousel.js';
 import mainBottomCarousel from './src/components/mainBottomCarousel.js';
 
@@ -8,8 +8,8 @@ let mini = new miniCarousel();
 mini.makeInnerHTML();
 mini.run();
 
-let main = new mainBottomCarousel();
-main.makeInnerHTML();
+let mainBottom = new mainBottomCarousel();
+mainBottom.makeInnerHTML();
 
-let mainCard =  new card();
+let mainCard =  new card(".main-carousel-top",".main-carousel-top-card-center");
 mainTop.innerHTML = mainCard.render();

@@ -1,7 +1,7 @@
 class slide{
-    constructor(olName,carouselName,width){
+    constructor(parentName,carouselName,width){
         this.carousel = document.querySelector(`.${carouselName}`);
-        this.ol = document.querySelector(`.${olName}`);
+        this.parent = document.querySelector(`.${parentName}`);
         this.leftBtn = `${carouselName}-left-btn`;
         this.rightBtn = `${carouselName}-right-btn`;
         this.lastTime = new Date().valueOf();
@@ -24,7 +24,7 @@ class slide{
 
     makeInnerHTML(){
         let child = this.render();
-        this.ol.innerHTML = child;
+        this.parent.innerHTML = child;
     }
 
     run(){
@@ -39,32 +39,32 @@ class slide{
     }
 
     slideRight(){  
-        let moveChildText = this.ol.lastElementChild.outerHTML;
-        this.ol.removeChild(this.ol.lastElementChild);
+        let moveChildText = this.parent.lastElementChild.outerHTML;
+        this.parent.removeChild(this.parent.lastElementChild);
         this.translate(`translate(+${this.width}rem,0)`,"0.3s",`-${this.width}rem`);
 
         setTimeout(async()=>{
-            this.ol.insertAdjacentHTML("afterbegin", moveChildText);
+            this.parent.insertAdjacentHTML("afterbegin", moveChildText);
             this.translate("none","0s");
         },300);     
     }
 
     slideLeft(){ 
-        let moveChildText = this.ol.firstElementChild.outerHTML;
-        this.ol.removeChild(this.ol.firstElementChild);
+        let moveChildText = this.parent.firstElementChild.outerHTML;
+        this.parent.removeChild(this.parent.firstElementChild);
         this.translate("none","0s","0");
 
         setTimeout(async()=>{
-            this.ol.insertAdjacentHTML("beforeend", moveChildText);
+            this.parent.insertAdjacentHTML("beforeend", moveChildText);
             this.translate(`translate(-${this.width}rem,0)`,"0.3s");
         },300);    
     }
 
     translate(transform,time,left){
-        this.ol.style.transform = transform;
-        this.ol.style.transition = time;
+        this.parent.style.transform = transform;
+        this.parent.style.transition = time;
          if(left !== undefined){
-            this.ol.style.left = left;
+            this.parent.style.left = left;
         }
     }
 }

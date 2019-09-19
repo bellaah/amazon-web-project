@@ -14,11 +14,11 @@ class mainCarousel extends slide{
         <span class="main-text-header">${obj.head}</span>
         <div class="main-text-description">${obj.body}</div>
         <a class="main-text-link" href=${obj.link}>
-            ${obj.tail} >
+            ${obj.tail} &#9656;
         </a>
     </div>
 </li>`
- });
+    });
         return childHTML;
     }
 }
