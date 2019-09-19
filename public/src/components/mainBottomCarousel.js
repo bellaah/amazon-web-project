@@ -8,7 +8,7 @@ class mainCarousel extends slide{
         let childHTML = "";
         data.forEach(obj => {
             childHTML +=`
-<li style="background: url(${obj.image}); background-position-x: -10rem;">
+<li style="background: url(${obj.image}); background-size: contain; background-position-x: -5rem;">
     <div class="main-text">
         <span class="main-text-title category-${obj.category}">${obj.title}</span><br/>
         <span class="main-text-header">${obj.head}</span>

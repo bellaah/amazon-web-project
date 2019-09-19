@@ -1,8 +1,12 @@
 $mini-carousel-height: 12rem;
 $mini-carousel-width: 15rem;
-$main-carousel-bottom-height: 20rem;
+$main-carousel-bottom-height: 19rem;
 $main-carousel-bottom-width: 60rem;
 $ship-color: #00A8E1;
+$stream-color: #FF6138;
+$shop-color: #E31F64;
+$read-color: #36C2B4;
+$more-color: #FFC400;
 
 $primeNavy:#232f3e;
 
@@ -34,10 +38,6 @@ $primeNavy:#232f3e;
     flex-direction: $direction;
 }
 
-body > div{
-    width: 70rem;
-}
-
 header{
     @include set-width-height(100%,4rem);
     display: flex;
@@ -57,6 +57,7 @@ header{
 .mini-carousel{
     @include set-display-flex-direction(row);
     margin: 1rem;
+    margin-left: 10%;
     padding: 4rem;
     div{
         height: $mini-carousel-height;
@@ -101,18 +102,21 @@ header{
 
 .main-carousel-bottom{
     @include set-display-flex-direction(row);
+    margin-left: 7%;
+    width: fit-content;
     div{
         margin: 1.5rem;
     }
     .main-carousel-bottom-center{
         overflow: hidden;
+        width: $main-carousel-bottom-width;
         .main-list{
             width: auto;
             left: -$main-carousel-bottom-width;
             li{
                 @include set-width-height($main-carousel-bottom-width,$main-carousel-bottom-height);
                 .main-text{
-                    margin-top:5rem;
+                    margin-top:3rem;
                     width: 30rem;
                     margin-left: 30rem;
                     .main-text-header{
@@ -141,4 +145,27 @@ header{
 
 .category-ship{
     background-color: $ship-color;
+}
+
+.category-stream{
+    background-color: $stream-color;
+}
+
+.category-shop{
+    background-color: $shop-color;
+}
+
+.category-read{
+    background-color: $read-color;
+}
+
+.category-more{
+    background-color: $more-color;
+}
+
+.main-text-title{
+    display: inline-block;
+    margin: 0.5rem 0;
+    color: white;
+    padding: 0.3rem;
 }

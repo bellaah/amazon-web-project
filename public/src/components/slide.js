@@ -14,12 +14,11 @@ class slide{
     addEventListener(){
         this.carousel.addEventListener("click",(evt)=>{
             if(evt.target.className === this.leftBtn) {
-                this.slide(false);
-                this.lastTime = new Date().valueOf();
+                this.slideRight();
             }else if(evt.target.className === this.rightBtn){
-                this.slide(true);
-                this.lastTime = new Date().valueOf();
+                this.slideLeft();
             }
+            this.lastTime = new Date().valueOf();
         });
     }
 
@@ -31,7 +30,7 @@ class slide{
     run(){
         let now = new Date().valueOf();
         if(now - this.lastTime >= 3000){
-            this.slide(true);
+            this.slideLeft();
             this.lastTime = new Date().valueOf();
         }
         setTimeout(()=>{
@@ -39,38 +38,34 @@ class slide{
         },500);
     }
 
-    slide(direction){  //direction:true(left),direction:false(right)
-        let addPosition,moveIdx,param;
-
-        if(direction){
-            addPosition = "beforeend";
-            moveIdx = this.ol.firstElementChild;
-            param = [{translate:"none",time:"0s",left:"0"},
-                    {translate:`translate(-${this.width}rem,0)`,time:"0.3s"}];
-        }else{
-            addPosition = "afterbegin";
-            moveIdx = this.ol.lastElementChild;
-            param = [{translate:`translate(+${this.width}rem,0)`,time:"0.3s",left:`-${this.width}rem`},
-                    {translate:"none",time:"0s"}];
-        }
-       
-        let moveChildText = moveIdx.outerHTML;
-        this.ol.removeChild(moveIdx);
-        this.translate(param[0]);
+    slideRight(){  
+        let moveChildText = this.ol.lastElementChild.outerHTML;
+        this.ol.removeChild(this.ol.lastElementChild);
+        this.translate(`translate(+${this.width}rem,0)`,"0.3s",`-${this.width}rem`);
 
         setTimeout(async()=>{
-            this.ol.insertAdjacentHTML(addPosition, moveChildText);
-            this.translate(param[1]);
-        },300);
-            
+            this.ol.insertAdjacentHTML("afterbegin", moveChildText);
+            this.translate("none","0s");
+        },300);     
     }
 
-    translate(obj){
-        if(obj.left !== undefined){
-            this.ol.style.left = obj.left;
+    slideLeft(){ 
+        let moveChildText = this.ol.firstElementChild.outerHTML;
+        this.ol.removeChild(this.ol.firstElementChild);
+        this.translate("none","0s","0");
+
+        setTimeout(async()=>{
+            this.ol.insertAdjacentHTML("beforeend", moveChildText);
+            this.translate(`translate(-${this.width}rem,0)`,"0.3s");
+        },300);    
+    }
+
+    translate(transform,time,left){
+        this.ol.style.transform = transform;
+        this.ol.style.transition = time;
+         if(left !== undefined){
+            this.ol.style.left = left;
         }
-        this.ol.style.transform = obj.translate;
-        this.ol.style.transition = obj.time;
     }
 }
 
