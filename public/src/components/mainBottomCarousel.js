@@ -1,14 +1,15 @@
 import data  from '../data/bottomData.js';
 import slide  from './slide.js';
 class mainCarousel extends slide{
-    constructor(){
-        super("main-list","main-carousel-bottom","60");
+    constructor(parentName,carouselName,width){
+        super(parentName,carouselName,width);
+        document.querySelector(`.${parentName}`).innerHTML = this.render();    
     }
     render(){
         let childHTML = "";
-        data.forEach(obj => {
+        data.forEach((obj,idx) => {
             childHTML +=`
-<li style="background: url(${obj.image}); background-size: contain; background-position-x: -5rem;">
+<li id="bottom-${idx}" style="background: url(${obj.image}); background-size: contain; background-position-x: -5rem;">
     <div class="main-text">
         <span class="main-text-title category-${obj.category}">${obj.title}</span><br/>
         <span class="main-text-header">${obj.head}</span>

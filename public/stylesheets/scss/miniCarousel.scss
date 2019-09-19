@@ -50,6 +50,19 @@ header{
     background-color: $primeNavy;
 }
 
+footer{
+    @include set-width-height(100%,4rem);
+    display: flex;
+    flex-direction: column;
+    background-color: $primeNavy;
+    span{
+        color: white;
+        font-variant: all-small-caps;
+        align-self: center;
+        margin-top: 1rem;
+    }
+}
+
 .amazon-logo{
     margin: 1.4rem;
     @include set-width-height(97px,30px);
@@ -178,7 +191,7 @@ header{
     @include set-display-flex-direction(row);
     justify-content: space-between;
     @include set-width-height(50rem,15rem);
-    margin-top: 2rem;
+    margin-top: 4rem;
     margin-left: 20%;
 
     .main-carousel-top-card{

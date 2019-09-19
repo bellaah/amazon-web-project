@@ -4,12 +4,9 @@ import mainBottomCarousel from './src/components/mainBottomCarousel.js';
 
 let mainTop = document.querySelector(".main-carousel-top");
 
-let mini = new miniCarousel();
-mini.makeInnerHTML();
+let mini = new miniCarousel("mini-list","mini-carousel","15");
 mini.run();
 
-let mainBottom = new mainBottomCarousel();
-mainBottom.makeInnerHTML();
+let mainBottom = new mainBottomCarousel("main-list","main-carousel-bottom","60");
 
 let mainCard =  new card(".main-carousel-top",".main-carousel-top-card-center");
-mainTop.innerHTML = mainCard.render();

@@ -7,7 +7,6 @@ class slide{
         this.lastTime = new Date().valueOf();
         this.width = width;
 
-        this.makeInnerHTML();
         this.addEventListener();
     }
     
@@ -20,11 +19,6 @@ class slide{
             }
             this.lastTime = new Date().valueOf();
         });
-    }
-
-    makeInnerHTML(){
-        let child = this.render();
-        this.parent.innerHTML = child;
     }
 
     run(){
