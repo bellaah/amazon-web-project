@@ -10,7 +10,7 @@ class mainCarousel extends slide{
             childHTML +=`
 <li style="background: url(${obj.image}); background-position-x: -10rem;">
     <div class="main-text">
-        <span class="main-text-title ">${obj.title}</span><br/>
+        <span class="main-text-title category-${obj.category}">${obj.title}</span><br/>
         <span class="main-text-header">${obj.head}</span>
         <div class="main-text-description">${obj.body}</div>
         <a class="main-text-link" href=${obj.link}>

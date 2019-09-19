@@ -6,7 +6,7 @@ export default [
         body: "Super-fast delivery, tens of millions of items, and flexible delivery options to fit your life. Plus, Prime members get FREE One-Day Delivery on tens of millions of items.",
         tail: "Explore Prime Delivery",
         link: "https://www.amazon.com/b?node=15247183011",
-        category: "Ship"
+        category: "ship"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A02._CB514650866_.jpg",
@@ -15,7 +15,7 @@ export default [
         body: "Prime members get FREE Same-Day Delivery on over three million items with qualifying orders.",
         tail: "Explore Same-Day Delivery",
         link: "https://www.amazon.com/b?node=8729023011",
-        category: "Ship"
+        category: "ship"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A03._CB514650829_.jpg",
@@ -24,7 +24,7 @@ export default [
         body: "No more waiting in line! Choose Free Release-Date Delivery at checkout on qualified items, and your package will be delivered on the release day by 7pm.",
         tail: "Explore Release-Date Delivery",
         link: "https://www.amazon.com/b?node=16067347011",
-        category: "Ship"
+        category: "ship"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_A04._CB494909365_.jpg",
@@ -33,7 +33,7 @@ export default [
         body: "Prime Now offers household items and essentials you need everyday plus the best of Amazon, delivered to your doorstep. Choose 2-hour delivery or 1-hour delivery in select cities.",
         tail: "Explore Prime Now",
         link: "https://primenow.amazon.com/onboard?sourceUrl=%2F",
-        category: "Ship"
+        category: "ship"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B01._CB457663232_.jpg",
@@ -42,7 +42,7 @@ export default [
         body: "As a Prime member, you can watch exclusive Amazon Originals and thousands of popular movies and TV shows—all at no extra cost. Watch at home or on the go with practically any device.",
         tail: "Explore Prime Video",
         link: "https://www.amazon.com/b/ref=dvm_us_aq_np_dhb_be_optpvt1?node=2858778011",
-        category: "Stream"
+        category: "stream"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B02._CB513839286_.jpg",
@@ -51,7 +51,7 @@ export default [
         body: "Gamers can get free games, in-game items, a free Twitch channel subscription every month and more with Twitch Prime.",
         tail: "Explore Twitch Prime",
         link: "https://twitch.amazon.com/prime",
-        category: "Stream"
+        category: "stream"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B03._CB513839286_.jpg",
@@ -60,7 +60,7 @@ export default [
         body: "As a Prime member, you can stream over 2 million songs ad free, listen on any Echo device, and take your music anywhere with offline listening.",
         tail: "Explore Prime Music",
         link: "https://www.amazon.com/gp/dmusic/promotions/PrimeMusic?ref=hawkfire_prime_detail_page_benefit_desc",
-        category: "Stream"
+        category: "stream"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/digital/video/merch/2018/Other/AVD12272_PrimeContentUpdate/Card_B04_AVD12272_PrimeContentUpdate_1280x400_en_US._CB474157036_.jpg",
@@ -69,7 +69,7 @@ export default [
         body: "Watch award-winning Amazon Originals like The Marvelous Mrs. Maisel, as well as exclusive series available only with Prime, including Goliath, Sneaky Pete, and The Grand Tour.",
         tail: "Explore Amazon Originals",
         link: "https://www.amazon.com/gp/video/storefront/ref=dvm_us_aq_np_dhb_be_optorigt1?ie=UTF8&merchId=originals1",
-        category: "Stream"
+        category: "stream"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_B05._CB514650828_.jpg",
@@ -78,7 +78,7 @@ export default [
         body: "Audible Channels are free with your Prime membership. Enjoy original audio series and playlists handcrafted for every interest. Just download the Audible app and start listening.",
         tail: "Explore Audible Channels",
         link: "https://www.audible.com/mt/getchannels",
-        category: "Stream"
+        category: "stream"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C06._CB495022579_.jpg",
@@ -87,7 +87,7 @@ export default [
         body: "Exclusive savings for Prime members in all US stores, 5% Back for eligible Prime members with the Amazon Prime Rewards Visa Card, and 2-hour delivery with Prime Now in select cities (more soon)",
         tail: "Explore Prime at Whole Foods",
         link: "https://www.amazon.com/wholefoods",
-        category: "Shop"
+        category: "shop"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C01_revised._CB502880131_.jpg",
@@ -96,7 +96,7 @@ export default [
         body: "With Alexa, shopping for essentials and reordering your favorite items from Amazon has never been easier.",
         tail: "Learn more about Alexa and Prime",
         link: "https://www.amazon.com/alexa-voice-shopping/b?ie=UTF8&node=14552177011",
-        category: "Shop"
+        category: "shop"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C03._CB511882458_.jpg",
@@ -105,7 +105,7 @@ export default [
         body: "As a Prime member enjoy early access to deals, Prime exclusive brands, and savings.",
         tail: "Shop Prime Member Exclusives",
         link: "https://www.amazon.com/b?ie=UTF8&node=16205654011",
-        category: "Shop"
+        category: "shop"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_C04._CB514650828_.jpg",
@@ -114,7 +114,7 @@ export default [
         body: "Prime members save 20% off both diapers and baby food when they have 5 or more subscriptions arriving",
         tail: "Explore Family Supplies",
         link: "https://www.amazon.com/gp/family/signup",
-        category: "Shop"
+        category: "shop"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_D01._CB514706473_.jpg",
@@ -123,7 +123,7 @@ export default [
         body: "As a Prime member, you can now read as much as you like from over a thousand top Kindle books, magazines, short works, books with Audible narration, comics, children's books and more—all at no additional cost.",
         tail: "Explore Prime Reading",
         link: "https://www.amazon.com/kindle-dbs/fd/prime-pr",
-        category: "Read"
+        category: "read"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_D02._CB513839283_.jpg",
@@ -132,7 +132,7 @@ export default [
         body: "Each month, Prime members can download one editors' pick for free--before the official publication date. Downloaded titles are yours to keep.",
         tail: "Learn more about Amazon First Reads",
         link: "https://www.amazon.com/kindlefirst",
-        category: "Read"
+        category: "read"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_E03._CB513839888_.jpg",
@@ -141,7 +141,7 @@ export default [
         body: "Eligible Prime members can earn 5% back at Amazon.com using the Amazon Prime Rewards Visa Card or the Amazon Prime Store card. All Prime members earn 2% rewards with Amazon Prime Reload.",
         tail: "Learn more about Prime Rewards",
         link: "https://www.amazon.com/b?node=16914437011&ref=acqNPrewards",
-        category: "More"
+        category: "more"
     },
     {
         image: "https://images-na.ssl-images-amazon.com/images/G/01/marketing/prime/detail_page/Card_E01._CB513839282_.jpg",
@@ -150,6 +150,6 @@ export default [
         body: "Back up and share your photos with unlimited photo storage. Add your photos to the free app to see them on all your devices.",
         tail: "Explore Amazon Photos",
         link: "https://www.amazon.com/b?node=13234696011",
-        category: "More"
+        category: "more"
     }
 ]
