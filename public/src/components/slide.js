@@ -6,6 +6,8 @@ class slide{
         this.rightBtn = `${carouselName}-right-btn`;
         this.lastTime = new Date().valueOf();
         this.width = width;
+        this.slideTime = 200;
+        this.currentNumber = 1;
 
         this.addEventListener();
     }
@@ -13,9 +15,11 @@ class slide{
     addEventListener(){
         this.carousel.addEventListener("click",(evt)=>{
             if(evt.target.className === this.leftBtn) {
-                this.slideRight();
+                this.slideRight(1);
+                this.changeState(this.currentNumber);
             }else if(evt.target.className === this.rightBtn){
-                this.slideLeft();
+                this.slideLeft(1);
+                this.changeState(this.currentNumber);
             }
             this.lastTime = new Date().valueOf();
         });
@@ -24,7 +28,7 @@ class slide{
     run(){
         let now = new Date().valueOf();
         if(now - this.lastTime >= 3000){
-            this.slideLeft();
+            this.slideLeft(1);
             this.lastTime = new Date().valueOf();
         }
         setTimeout(()=>{
@@ -32,26 +36,48 @@ class slide{
         },500);
     }
 
-    slideRight(){  
+    slideRight(slideCount){  
+        if(this.currentNumber === 0){
+            this.currentNumber = 16;
+        }else{
+            this.currentNumber--;
+        }
+
         let moveChildText = this.parent.lastElementChild.outerHTML;
         this.parent.removeChild(this.parent.lastElementChild);
-        this.translate(`translate(+${this.width}rem,0)`,"0.3s",`-${this.width}rem`);
+        this.translate(`translate(+${this.width}rem,0)`,`${this.slideTime}ms`,`-${this.width}rem`);
 
         setTimeout(async()=>{
             this.parent.insertAdjacentHTML("afterbegin", moveChildText);
             this.translate("none","0s");
-        },300);     
+            if(slideCount > 1){
+                setTimeout(()=>{
+                    this.slideRight(slideCount-1);
+                },this.slideTime);
+            }
+        },this.slideTime);       
     }
 
-    slideLeft(){ 
+    slideLeft(slideCount){ 
+        if(this.currentNumber === 16){
+            this.currentNumber = 0;
+        }else{
+            this.currentNumber++;
+        }
+
         let moveChildText = this.parent.firstElementChild.outerHTML;
         this.parent.removeChild(this.parent.firstElementChild);
         this.translate("none","0s","0");
 
         setTimeout(async()=>{
             this.parent.insertAdjacentHTML("beforeend", moveChildText);
-            this.translate(`translate(-${this.width}rem,0)`,"0.3s");
-        },300);    
+            this.translate(`translate(-${this.width}rem,0)`,`${this.slideTime}ms`);
+            if(slideCount > 1){
+                setTimeout(()=>{
+                    this.slideLeft(slideCount-1);
+                },this.slideTime);
+            }
+        },this.slideTime); 
     }
 
     translate(transform,time,left){

@@ -3,7 +3,6 @@ import slide  from './slide.js';
 class miniCarousel extends slide{
     constructor(parentName,carouselName,width){
         super(parentName,carouselName,width);
-        document.querySelector(`.${parentName}`).innerHTML = this.render();
     }
 
     render(){
