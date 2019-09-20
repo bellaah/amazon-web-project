@@ -6,23 +6,25 @@ class card{
         this.currentli = 0;
         this.addEventListener();
 
-        this.observer = null;
+        this.observers = [];
         this.state = null; 
 
         this.data;
-        this.publisher=[];
+        this.publisher;
     }
 
     //발행 메소드
     add(observer) {
-        this.observer = observer;
+        this.observers.push(observer);
     }
-   
+    notifyObservers() {
+        this.observers.forEach(observer => {
+          observer.update();
+        });
+    }
     changeState(clickNumber) {
         this.state = clickNumber;
-        if(this.observer !== null){
-            this.observer.update();
-        }
+        this.notifyObservers();
     }
 
     //구독 메소드

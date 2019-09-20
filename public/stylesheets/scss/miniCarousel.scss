@@ -2,16 +2,18 @@ $mini-carousel-height: 12rem;
 $mini-carousel-width: 15rem;
 $main-carousel-bottom-height: 19rem;
 $main-carousel-bottom-width: 60rem;
-$ship-color: #00A8E1;
-$stream-color: #FF6138;
-$shop-color: #E31F64;
-$read-color: #36C2B4;
-$more-color: #FFC400;
 $small-card-width: 150px;
 $small-card-height: 210px;
 $font-stack: ('Helvetica', 'Arial', sans-serif);
-
 $primeNavy:#232f3e;
+$cateroty-color: (#00A8E1, #FF6138, #E31F64, #36C2B4, #FFC400);
+$cateroty-list: ("ship","stream","shop","read","more");
+
+@for $i from 0 to length($cateroty-color) {
+    .category-#{nth($cateroty-list, $i+1)} {
+        background-color: unquote(nth($cateroty-color, $i+1));
+    }
+}
 
 @mixin mini-carousel-size{
     width: $mini-carousel-width;
@@ -75,8 +77,7 @@ footer{
 
 .mini-carousel{
     @include set-display-flex-direction(row);
-    margin: 1rem;
-    margin-left: 12%;
+    margin: 1rem 1rem 1rem 12%;
     padding: 3rem;
     div{
         height: $mini-carousel-height;
@@ -121,9 +122,8 @@ footer{
 
 .main-carousel-bottom{
     @include set-display-flex-direction(row);
-    margin-left: 10%;
+    margin: 0 0 3rem 10%;
     width: fit-content;
-    margin-bottom: 3rem;
     .main-carousel-bottom-center{
         overflow: hidden;
         width: $main-carousel-bottom-width;
@@ -134,9 +134,8 @@ footer{
             li{
                 @include set-width-height($main-carousel-bottom-width,$main-carousel-bottom-height);
                 .main-text{
-                    margin-top:3rem;
+                    margin:3rem 0 0 30rem;
                     width: 30rem;
-                    margin-left: 30rem;
                     .main-text-title{
                         display: inline-block;
                         margin: 0.5rem 0;
@@ -167,32 +166,12 @@ footer{
     }
 }
 
-.category-ship{
-    background-color: $ship-color;
-}
-
-.category-stream{
-    background-color: $stream-color;
-}
-
-.category-shop{
-    background-color: $shop-color;
-}
-
-.category-read{
-    background-color: $read-color;
-}
-
-.category-more{
-    background-color: $more-color;
-}
 
 .main-carousel-top{
     @include set-display-flex-direction(row);
-    justify-content: space-between;
     @include set-width-height(50rem,15rem);
-    margin-top: 4rem;
-    margin-left: 20%;
+    justify-content: space-between;
+    margin: 4rem 0 0 20%;
 
     .main-carousel-top-card{
         @include set-width-height($small-card-width,$small-card-height);

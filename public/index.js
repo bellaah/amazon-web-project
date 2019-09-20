@@ -6,7 +6,7 @@ let mainTop = document.querySelector(".main-carousel-top");
 
 let mini = new miniCarousel("mini-list","mini-carousel","15");
 document.querySelector(".mini-list").innerHTML = mini.render();
-// mini.run();
+mini.run();
 
 let mainBottom = new mainBottomCarousel("main-list","main-carousel-bottom","60");
 document.querySelector(".main-list").innerHTML = mainBottom.render();
@@ -15,11 +15,6 @@ let mainCard =  new card("main-carousel-top","main-carousel-top-card-center");
 document.querySelector(".main-carousel-top").innerHTML = mainCard.render();  
 document.querySelector(".main-carousel-top-card-center").click();
 
-//옵저버등록
-mainBottom.add(mainCard);
-mainCard.add(mainBottom);
-
-//발행자 등록
 mainBottom.subscribe(mainCard);
 mainCard.subscribe(mainBottom);
 

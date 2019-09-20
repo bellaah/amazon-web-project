@@ -5,7 +5,7 @@ class mainCarousel extends slide{
         super(parentName,carouselName,width);  
 
         //publisher
-        this.observer = null;
+        this.observers = [];
         this.state = null; 
 
         //observer
@@ -15,13 +15,16 @@ class mainCarousel extends slide{
 
     //발행 메소드
     add(observer) {
-        this.observer = observer;
+        this.observers.push(observer);
+    }
+    notifyObservers() {
+        this.observers.forEach(observer => {
+          observer.update();
+        });
     }
     changeState(currentNumber) {
         this.state =  currentNumber;
-        if(this.observer !== null){
-            this.observer.update();
-        }
+        this.notifyObservers();
     }
 
     //구독 메소드
@@ -35,15 +38,17 @@ class mainCarousel extends slide{
     }
 
     slideLoop(id){
+        let slideTime;
         if(this.currentNumber === id){
             return;
         }else if(this.currentNumber < id){
-            this.slideLeft(id-this.currentNumber);
+            slideTime = 200/(id-this.currentNumber);
+            this.slideLeft(id-this.currentNumber,slideTime);
         }else{
-            this.slideRight(this.currentNumber-id);
+            slideTime = 200/(this.currentNumber-id);
+            this.slideRight(this.currentNumber-id,slideTime);
         }
     }
-
 
     render(){
         let childHTML = "";

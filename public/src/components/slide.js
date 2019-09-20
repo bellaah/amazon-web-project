@@ -36,7 +36,7 @@ class slide{
         },500);
     }
 
-    slideRight(slideCount){  
+    slideRight(slideCount,slideTime = this.slideTime){  
         if(this.currentNumber === 0){
             this.currentNumber = 16;
         }else{
@@ -52,19 +52,20 @@ class slide{
             this.translate("none","0s");
             if(slideCount > 1){
                 setTimeout(()=>{
-                    this.slideRight(slideCount-1);
-                },this.slideTime);
+                    this.slideRight(slideCount-1,slideTime);
+                },slideTime);
             }
-        },this.slideTime);       
+        },slideTime);       
     }
 
-    slideLeft(slideCount){ 
+    slideLeft(slideCount,slideTime = this.slideTime){ 
         if(this.currentNumber === 16){
             this.currentNumber = 0;
         }else{
             this.currentNumber++;
         }
 
+        console.log(slideTime);
         let moveChildText = this.parent.firstElementChild.outerHTML;
         this.parent.removeChild(this.parent.firstElementChild);
         this.translate("none","0s","0");
@@ -74,10 +75,10 @@ class slide{
             this.translate(`translate(-${this.width}rem,0)`,`${this.slideTime}ms`);
             if(slideCount > 1){
                 setTimeout(()=>{
-                    this.slideLeft(slideCount-1);
-                },this.slideTime);
+                    this.slideLeft(slideCount-1,slideTime);
+                },slideTime);
             }
-        },this.slideTime); 
+        },slideTime); 
     }
 
     translate(transform,time,left){
