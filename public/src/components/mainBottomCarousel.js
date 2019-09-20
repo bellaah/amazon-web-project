@@ -39,14 +39,27 @@ class mainCarousel extends slide{
 
     slideLoop(id){
         let slideTime;
+        let reverseSlideCount;
         if(this.currentNumber === id){
             return;
         }else if(this.currentNumber < id){
-            slideTime = 200/(id-this.currentNumber);
-            this.slideLeft(id-this.currentNumber,slideTime);
+            reverseSlideCount = 17-id+this.currentNumber;
+            if(reverseSlideCount < id-this.currentNumber){
+                slideTime = 200/(reverseSlideCount);
+                this.slideRight(reverseSlideCount,slideTime);
+            }else{
+                slideTime = 200/(id-this.currentNumber);
+                this.slideLeft(id-this.currentNumber,slideTime);
+            }
         }else{
-            slideTime = 200/(this.currentNumber-id);
+            reverseSlideCount = 17-this.currentNumber+id;
+            if(reverseSlideCount < this.currentNumber-id){
+                slideTime = 200/(reverseSlideCount);
+                this.slideLeft(reverseSlideCount,slideTime);
+            }else{
+                slideTime = 200/(this.currentNumber-id);
             this.slideRight(this.currentNumber-id,slideTime);
+            }
         }
     }
 
