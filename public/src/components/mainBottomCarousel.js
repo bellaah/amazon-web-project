@@ -10,7 +10,7 @@ class mainCarousel extends slide{
 
         //observer
         this.data;
-        this.publisher=[];
+        this.publisher = [];
     }
 
     //발행 메소드
@@ -51,11 +51,11 @@ class mainCarousel extends slide{
     findCloser(flag,id,currentNum){
         let reverseSlideCount;
         if(flag){       //current < id
-            reverseSlideCount = 17-id+currentNum;
-            return reverseSlideCount < id-currentNum? [this.slideRight,reverseSlideCount] :[this.slideLeft,id-currentNum];
+            reverseSlideCount = 17-id+currentNum; 
+            return reverseSlideCount < id-currentNum ? [this.slideRight,reverseSlideCount] : [this.slideLeft,id-currentNum];
         }else{
             reverseSlideCount = 17-currentNum+id;
-            return reverseSlideCount < currentNum-id ? [this.slideLeft,reverseSlideCount] :[this.slideRight,currentNum-id];
+            return reverseSlideCount < currentNum-id ? [this.slideLeft,reverseSlideCount] : [this.slideRight,currentNum-id];
         }
     }
 
@@ -63,7 +63,7 @@ class mainCarousel extends slide{
     render(){
         let childHTML = "";
         data.forEach((obj,idx) => {
-            childHTML +=`
+            childHTML += `
 <li id="bottom-${idx}" class="${obj.title}-li" style="background: url(${obj.image}); background-size: contain; background-position-x: -5rem;">
     <div class="main-text">
         <span class="main-text-title category-${obj.category}">${obj.title}</span><br/>

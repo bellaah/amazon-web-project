@@ -3,7 +3,6 @@ class card{
     constructor(parentName,listClassName){
         this.parent = document.querySelector(`.${parentName}`);
         this.listClassName = `.${listClassName}`;
-        this.currentli = 0;
 
         this.observers = [];
         this.state = null; 
@@ -36,6 +35,11 @@ class card{
     update() {
         this.data = this.publisher.state;   //클릭이벤트가 발생한 번호 
         let selector = document.querySelector(`#top-${this.data}`);
+        let parent = selector.parentNode.parentNode;
+        if(parent.style.display == "none"){
+            this.reduceCardAll();
+            this.expandCard(parent.parentNode.querySelector(".main-carousel-top-card-center"));
+        }   
         selector.click();
     }
 
@@ -85,7 +89,7 @@ class card{
         let childHTML = "";
         let startCount = 0;
         data.forEach(obj => {
-            childHTML +=`
+            childHTML += `
 <div class="main-carousel-top-card">
     <div class="main-carousel-top-card-back" style="background-image: linear-gradient(30deg, ${obj.gradient[0]} 40%, ${obj.gradient[1]} 85%, ${obj.gradient[2]} 74px);">
             <div class="main-carousel-top-button-list">

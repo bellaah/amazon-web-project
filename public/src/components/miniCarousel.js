@@ -8,7 +8,7 @@ class miniCarousel extends slide{
     render(){
         let childHTML = "";
         imgURL.forEach(obj => {
-            childHTML +=`
+            childHTML += `
 <li>
     <a href=${obj.link}>
         <img src="${obj.image}"></img>

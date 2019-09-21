@@ -7,7 +7,7 @@ class slide{
         this.lastTime = new Date().valueOf();
         this.width = width;
         this.slideTime = 200;
-        this.currentNumber = 0;
+        this.currentNumber = 1;
 
         this.addEventListener();
     }
