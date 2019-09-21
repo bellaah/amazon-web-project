@@ -4,13 +4,14 @@ class card{
         this.parent = document.querySelector(`.${parentName}`);
         this.listClassName = `.${listClassName}`;
         this.currentli = 0;
-        this.addEventListener();
 
         this.observers = [];
         this.state = null; 
 
         this.data;
         this.publisher;
+
+        this.addEventListener();
     }
 
     //발행 메소드

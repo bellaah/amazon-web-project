@@ -7,7 +7,7 @@ class slide{
         this.lastTime = new Date().valueOf();
         this.width = width;
         this.slideTime = 200;
-        this.currentNumber = 1;
+        this.currentNumber = 0;
 
         this.addEventListener();
     }
@@ -37,11 +37,7 @@ class slide{
     }
 
     slideRight(slideCount,slideTime = this.slideTime){  
-        if(this.currentNumber === 0){
-            this.currentNumber = 16;
-        }else{
-            this.currentNumber--;
-        }
+        this.currentNumber = (this.currentNumber+16)%17;
 
         let moveChildText = this.parent.lastElementChild.outerHTML;
         this.parent.removeChild(this.parent.lastElementChild);
@@ -59,13 +55,8 @@ class slide{
     }
 
     slideLeft(slideCount,slideTime = this.slideTime){ 
-        if(this.currentNumber === 16){
-            this.currentNumber = 0;
-        }else{
-            this.currentNumber++;
-        }
+        this.currentNumber = (this.currentNumber+1)%17;
 
-        console.log(slideTime);
         let moveChildText = this.parent.firstElementChild.outerHTML;
         this.parent.removeChild(this.parent.firstElementChild);
         this.translate("none","0s","0");

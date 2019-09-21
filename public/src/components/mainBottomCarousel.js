@@ -38,30 +38,27 @@ class mainCarousel extends slide{
     }
 
     slideLoop(id){
-        let slideTime;
-        let reverseSlideCount;
         if(this.currentNumber === id){
             return;
-        }else if(this.currentNumber < id){
-            reverseSlideCount = 17-id+this.currentNumber;
-            if(reverseSlideCount < id-this.currentNumber){
-                slideTime = 200/(reverseSlideCount);
-                this.slideRight(reverseSlideCount,slideTime);
-            }else{
-                slideTime = 200/(id-this.currentNumber);
-                this.slideLeft(id-this.currentNumber,slideTime);
-            }
+        }
+        let flag = this.currentNumber < id ? true : false;
+   
+        let [slideFunction,slideCount] = this.findCloser(flag,id,this.currentNumber);
+        let slideTime = 200/slideCount;
+        slideFunction.bind(this)(slideCount,slideTime);
+    }
+
+    findCloser(flag,id,currentNum){
+        let reverseSlideCount;
+        if(flag){       //current < id
+            reverseSlideCount = 17-id+currentNum;
+            return reverseSlideCount < id-currentNum? [this.slideRight,reverseSlideCount] :[this.slideLeft,id-currentNum];
         }else{
-            reverseSlideCount = 17-this.currentNumber+id;
-            if(reverseSlideCount < this.currentNumber-id){
-                slideTime = 200/(reverseSlideCount);
-                this.slideLeft(reverseSlideCount,slideTime);
-            }else{
-                slideTime = 200/(this.currentNumber-id);
-            this.slideRight(this.currentNumber-id,slideTime);
-            }
+            reverseSlideCount = 17-currentNum+id;
+            return reverseSlideCount < currentNum-id ? [this.slideLeft,reverseSlideCount] :[this.slideRight,currentNum-id];
         }
     }
+
 
     render(){
         let childHTML = "";

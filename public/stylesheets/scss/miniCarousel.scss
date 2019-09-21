@@ -7,10 +7,10 @@ $small-card-height: 210px;
 $font-stack: ('Helvetica', 'Arial', sans-serif);
 $primeNavy:#232f3e;
 $cateroty-color: (#00A8E1, #FF6138, #E31F64, #36C2B4, #FFC400);
-$cateroty-list: ("ship","stream","shop","read","more");
+$cateroty-name: ("ship","stream","shop","read","more");
 
 @for $i from 0 to length($cateroty-color) {
-    .category-#{nth($cateroty-list, $i+1)} {
+    .category-#{nth($cateroty-name, $i+1)} {
         background-color: unquote(nth($cateroty-color, $i+1));
     }
 }
@@ -54,8 +54,7 @@ header{
 
 footer{
     @include set-width-height(100%,4rem);
-    display: flex;
-    flex-direction: column;
+    @include set-display-flex-direction(column);
     background-color: $primeNavy;
     span{
         color: white;
@@ -133,24 +132,6 @@ footer{
             left: -$main-carousel-bottom-width;
             li{
                 @include set-width-height($main-carousel-bottom-width,$main-carousel-bottom-height);
-                .main-text{
-                    margin:3rem 0 0 30rem;
-                    width: 30rem;
-                    .main-text-title{
-                        display: inline-block;
-                        margin: 0.5rem 0;
-                        color: white;
-                        padding: 0.3rem;
-                    }
-                    .main-text-header{
-                        font-size: 1.5rem;
-                    }
-                    .main-text-description{
-                        line-height: 1.5rem;
-                        font-weight: 300;
-                        margin: 1rem 0rem;
-                    }
-                }
             }
         }
     }
@@ -166,6 +147,24 @@ footer{
     }
 }
 
+.main-text{
+    margin:3rem 0 0 30rem;
+    width: 30rem;
+    .main-text-title{
+        display: inline-block;
+        margin: 0.5rem 0;
+        color: white;
+        padding: 0.3rem;
+    }
+    .main-text-header{
+        font-size: 1.5rem;
+    }
+    .main-text-description{
+        line-height: 1.5rem;
+        font-weight: 300;
+        margin: 1rem 0rem;
+    }
+}
 
 .main-carousel-top{
     @include set-display-flex-direction(row);
