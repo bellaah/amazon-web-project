@@ -43,7 +43,7 @@ class slide{
         this.parent.removeChild(this.parent.lastElementChild);
         this.translate(`translate(+${this.width}rem,0)`,`${this.slideTime}ms`,`-${this.width}rem`);
 
-        setTimeout(async()=>{
+        setTimeout(()=>{
             this.parent.insertAdjacentHTML("afterbegin", moveChildText);
             this.translate("none","0s");
             if(slideCount > 1){
@@ -61,7 +61,7 @@ class slide{
         this.parent.removeChild(this.parent.firstElementChild);
         this.translate("none","0s","0");
 
-        setTimeout(async()=>{
+        setTimeout(()=>{
             this.parent.insertAdjacentHTML("beforeend", moveChildText);
             this.translate(`translate(-${this.width}rem,0)`,`${this.slideTime}ms`);
             if(slideCount > 1){

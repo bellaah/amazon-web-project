@@ -13,7 +13,6 @@ class card{
         this.addEventListener();
     }
 
-    //발행 메소드
     add(observer) {
         this.observers.push(observer);
     }
@@ -27,13 +26,12 @@ class card{
         this.notifyObservers();
     }
 
-    //구독 메소드
     subscribe(publisher) {
         this.publisher = publisher;
         this.publisher.add(this);
     }
     update() {
-        this.data = this.publisher.state;   //클릭이벤트가 발생한 번호 
+        this.data = this.publisher.state; 
         let selector = document.querySelector(`#top-${this.data}`);
         let parent = selector.parentNode.parentNode;
         if(parent.style.display == "none"){
@@ -54,7 +52,7 @@ class card{
                 this.resetOpacityAll(evt.target.className);
                 this.changeOpacity(evt.target);
                 this.currentNumber = event.target.id.split('-')[1];
-                this.changeState(event.target.id.split('-')[1]);     //클릭 이벤트가 발생했으므로 하단에 알린다.
+                this.changeState(event.target.id.split('-')[1]); 
             }
         });
     }

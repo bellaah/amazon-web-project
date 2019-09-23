@@ -4,16 +4,13 @@ class mainCarousel extends slide{
     constructor(parentName,carouselName,width){
         super(parentName,carouselName,width);  
 
-        //publisher
         this.observers = [];
         this.state = null; 
 
-        //observer
         this.data;
         this.publisher = [];
     }
 
-    //발행 메소드
     add(observer) {
         this.observers.push(observer);
     }
@@ -27,13 +24,12 @@ class mainCarousel extends slide{
         this.notifyObservers();
     }
 
-    //구독 메소드
     subscribe(publisher) {
         this.publisher = publisher;
         this.publisher.add(this);
     }
     update() {
-        this.data = this.publisher.state;   //클릭이벤트가 발생한 번호 
+        this.data = this.publisher.state;  
         this.slideLoop(parseInt(this.data));
     }
 
@@ -50,7 +46,7 @@ class mainCarousel extends slide{
 
     findCloser(flag,id,currentNum){
         let reverseSlideCount;
-        if(flag){       //current < id
+        if(flag){   
             reverseSlideCount = 17-id+currentNum; 
             return reverseSlideCount < id-currentNum ? [this.slideRight,reverseSlideCount] : [this.slideLeft,id-currentNum];
         }else{
