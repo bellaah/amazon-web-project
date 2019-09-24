@@ -50,6 +50,19 @@ header{
     @include set-width-height(100%,4rem);
     display: flex;
     background-color: $primeNavy;
+    button{
+        height: fit-content;
+        background-color: transparent;
+        color: white;
+        padding: 0.5rem;
+        border: 1px solid;
+        align-self: center;
+        border-radius: 0.7rem;
+        margin: 0.5rem;
+    }
+    .sign-in-btn{
+        margin-left: auto;
+    }
 }
 
 footer{
