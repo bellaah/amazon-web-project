@@ -9,6 +9,12 @@ head
     h2#register_text &#xD68C;&#xC6D0;&#xAC00;&#xC785;
   form.register_form(method='post' action='/main/signupToMain')
     .text_input
+      label(for='name_input')
+        | &#xC774;&#xB984;
+        br
+      input#name_input(type='text' name='name')
+      span#name_check.red_text
+    .text_input
       label(for='id_input')
         | &#xC544;&#xC774;&#xB514;
         br
@@ -26,75 +32,6 @@ head
         br
       input#pwd_confirm_input(type='password' name='pwd_confirm')
       span#pwd_confirm_check.red_text
-    .text_input
-      label(for='name_input')
-        | &#xC774;&#xB984;
-        br
-      input#name_input(type='text' name='name')
-      span#name_check.red_text
-    .birthday
-      label(for='birth_input')
-        | &#xC0DD;&#xB144;&#xC6D4;&#xC77C;
-        br
-      .birth_wrap
-        input#year_input(type='text' name='year' placeholder='년(4자)')
-        select#month_input(name='month')
-          option &#xC6D4;
-          option(value='1') 1
-          option(value='2') 2
-          option(value='3') 3
-          option(value='4') 4
-          option(value='5') 5
-          option(value='6') 6
-          option(value='7') 7
-          option(value='8') 8
-          option(value='9') 9
-          option(value='10') 10
-          option(value='11') 11
-          option(value='12') 12
-        input#day_input(type='text' name='day' placeholder='일')
-      span#birth_check.red_text
-    .text_input
-      label(for='gender_input')
-        | &#xC131;&#xBCC4;
-        br
-      select#gender_input(name='gender')
-        option &#xC131;&#xBCC4;
-        option(value='male') &#xB0A8;&#xC790;
-        option(value='female') &#xC5EC;&#xC790;
-      span#gender_check.red_text
-    .text_input
-      label(for='email_input')
-        | &#xC774;&#xBA54;&#xC77C;
-        br
-      input#email_input(type='email' name='email')
-      span#email_check.red_text
-    .text_input
-      label(for='phone_input')
-        | &#xD734;&#xB300;&#xC804;&#xD654;
-        br
-      input#phone_input(type='text' name='phone' placeholder='- 없이 입력해주세요. 예)01012341234')
-      span#phone_check.red_text
-    .text_input
-      label(for='interest_input')
-        | &#xAD00;&#xC2EC;&#xC0AC;
-        br
-      .tag_div(onfocusin='focusIn()' onfocusout='focusOut()')
-        .tag_list
-        input#interest_input(type='text' name='interest')
-      span#interest_check.red_text
-    .terms
-      a(href='javascript:termsLayer()') &#xC57D;&#xAD00;&#xC5D0; &#xB3D9;&#xC758;&#xD569;&#xB2C8;&#xB2E4;. 
-      input#terms_input(type='checkbox' name='terms_input' disabled='true')
-      span#terms_check.red_text
-    .pop_layer
-      button#layer_exit_btn(type='button' onclick='closeLayer()')
-        b#layer_exit_b X
-      b#layer_head
-      pre#layer_text(onscroll='scrolled(this)').
-        
-      #layer_btn
-    #backgound_div
     .green_btn
       input(type='button' onclick='resetLayer()' value='초기화')
       input(type='button' value='가입하기' onclick='checkAll()')

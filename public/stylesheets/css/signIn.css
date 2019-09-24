@@ -17,11 +17,12 @@
 #login_btn_div > button{
     border-radius: 0;
     width: 49%;
-    background-color: #2cb400;
+    background-color: #232f3e;
+    color: white;
 }
 
 #login_head {
-    color: #2cb400;
+    color: #232f3e;
     text-align: center;
     margin: 0 0 1rem 0;
 }
@@ -42,7 +43,6 @@
 
 .form-signin {
     width: 40rem;
-    background :#f5f6f7;
     border: solid 1px #dadada;
     padding: 2rem;
 }

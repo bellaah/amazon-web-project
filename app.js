@@ -1,11 +1,11 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
-
-var indexRouter = require('./routes/index');
-var app = express();
+var createError     = require('http-errors');
+var express         = require('express');
+var path            = require('path');
+var logger          = require('morgan');
+var sassMiddleware  = require('node-sass-middleware');
+var indexRouter     = require('./routes/index');
+var db              = require('./db.js');
+var app             = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
@@ -22,9 +22,11 @@ app.use(sassMiddleware({
   outputStyle: 'compressed',
   prefix: '/style',
 }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
