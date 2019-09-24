@@ -1,4 +1,4 @@
 /node_modules
-/db.js
-
-*.DS_Store
+db.js
+.DS_Store
+package-lock.json
