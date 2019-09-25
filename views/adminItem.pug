@@ -1,0 +1,32 @@
+doctype html
+head
+style
+    include ../public/stylesheets/css/reset1.css
+    include ../public/stylesheets/css/admin.css
+title bella-amazon
+header
+  .amazon-logo
+nav
+  ul
+    li
+      a(href='/adminItem') ITEM
+    li
+      a(href='/adminUser') USERS
+section
+  p  SHIP 
+  .category.ship-div
+section
+  p  STREAM 
+  .category.stream-div
+section
+  p  SHOP 
+  .category.shop-div
+section
+  p  READ 
+  .category.read-div
+section
+  p  MORE 
+  .category.more-div
+footer
+  span Copyright &copy; heesun
+script(type='module' src='./src/components/adminItem.js')

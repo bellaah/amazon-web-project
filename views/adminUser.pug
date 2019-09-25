@@ -1,0 +1,26 @@
+doctype html
+head
+style
+    include ../public/stylesheets/css/reset1.css
+    include ../public/stylesheets/css/admin.css
+title bella-amazon
+header
+  .amazon-logo
+nav
+  ul
+    li
+      a(href='/adminItem') ITEM
+    li
+      a(href='/adminUser') USERS
+section
+  p  USER 
+  table
+    thead
+        tr
+        th ID
+        th NAME
+        th ADMIN
+    tbody.user-table
+footer
+  span Copyright &copy; heesun
+script(type='module' src='./src/components/adminUser.js')
