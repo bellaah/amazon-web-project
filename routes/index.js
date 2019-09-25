@@ -14,12 +14,22 @@ router.get('/signUp', function(req, res, next) {
   res.render('signUp');
 });
 
-router.get('/adminItem', function(req, res, next) {
-  res.render('adminItem');
+router.get('/admin', function(req, res, next) {
+  res.render('admin');
 });
 
 router.get('/adminUser', function(req, res, next) {
   res.render('adminUser');
+});
+
+router.post('/checkAdmin', function(req, res, next) {
+  pool.getConnection(function(err,connection){
+    eval(req.body).forEach(elem => {
+      connection.query(`UPDATE users SET admin = ${elem.admin} WHERE user_id = '${elem.id}'`, function (err, rows) {
+        connection.release();
+      });
+    });
+  });
 });
 
 //하단 케로셀의 data를  db에서 꺼내서 넘겨주는 API

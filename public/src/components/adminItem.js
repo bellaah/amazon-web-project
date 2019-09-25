@@ -21,7 +21,7 @@ function itemRender(category){
     list.forEach(obj => {
         if(obj.category === category){
             childHTML += `
-<li id="bottom-${count++}" class="${obj.title}-li">
+<li id="bottom-${count}" class="${obj.title}-li">
     <img src=${obj.image}></img>
     <div class="main-text">
         <span class="main-text-title category-${obj.category}">keyword : ${obj.keyword}</span><br/>
@@ -30,6 +30,7 @@ function itemRender(category){
         <a class="main-text-link" href=${obj.link}>
             link : ${obj.tail}
         </a>
+        <button class="delete-btn" id="delete-btn-${count++}"> 삭제 </button>
     </div>
 </li>`
         }
