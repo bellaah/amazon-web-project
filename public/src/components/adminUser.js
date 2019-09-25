@@ -41,9 +41,6 @@ function checkAdminListener(){
             },
             mode:"cors",
             body: JSON.stringify(matchIdAndCheckbox())
-        })
-        .then((res) => {
-           
         });
     });
 }

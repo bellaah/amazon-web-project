@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var pool = require('./db.js');
+var fs = require('fs');
+var multiparty = require('multiparty');
+
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -22,6 +25,7 @@ router.get('/adminUser', function(req, res, next) {
   res.render('adminUser');
 });
 
+
 router.post('/checkAdmin', function(req, res, next) {
   pool.getConnection(function(err,connection){
     eval(req.body).forEach(elem => {
@@ -29,7 +33,28 @@ router.post('/checkAdmin', function(req, res, next) {
         connection.release();
       });
     });
+    res.send("success");
   });
+});
+
+router.post('/addDataList', function(req, res, next) {
+  console.log(req.body);
+  // let form = new multiparty.Form();
+  // form.on('part', function(part) {
+  //   if (!part.filename) {
+  //     console.log('got field named ' + part.name);
+  //     part.resume();
+  //   }
+  // });
+  
+
+  // // fs.writeFile('text1.txt', data, 'utf8', function(error){
+  // //    console.log('write end') 
+  // //   });
+  // pool.getConnection(function(err,connection){
+    
+  //   res.send("success");
+  // });
 });
 
 //하단 케로셀의 data를  db에서 꺼내서 넘겨주는 API

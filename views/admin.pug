@@ -27,6 +27,24 @@ section
 section
   p  MORE 
   .category.more-div
+.item-insert-div
+  h2 ITEM &#xCD94;&#xAC00;
+  form.item-insert-form(action='/addDataList' method='POST')
+    label(for='jb-input-text') keyword
+    textarea(type='text' name='keyword')
+    label(for='jb-input-text') title
+    textarea(type='text' name='title')
+    label(for='jb-input-text') description
+    textarea(type='text' name='description')
+    label(for='jb-input-text') tail
+    textarea(type='text' name='tail')
+    label(for='jb-input-text') link
+    textarea(type='text' name='link')
+    label(for='jb-input-text') category
+    textarea(type='text' name='category')
+    label(for='jb-input-text') image
+    textarea(type='file' name='image')
+    input(type='submit')
 footer
   span Copyright &copy; heesun
 script(type='module' src='./src/components/adminItem.js')
