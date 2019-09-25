@@ -45,26 +45,10 @@ const removeChildAll = (parent) => {
 const checkAll = () => {
     let returnValue = checkInputAll();
     if(returnValue.length == 0){  
-        const jsonData = makeJSON();
-        axios({
-            method: 'post',
-            url: '/dbCheck/registerUser',
-            data: jsonData
-        }).then(res => {
-            document.forms[0].submit();
-        })
+        document.forms[0].submit();
     }else{  
         registerLayer(returnValue);
     }
-}
-
-const makeJSON = () => {
-    let json = {
-        id : $("#id_input").value,
-        password : $("#pwd_input").value,
-        name : $("#name_input").value
-    };
-    return json;
 }
 
 const checkInputAll = () => {

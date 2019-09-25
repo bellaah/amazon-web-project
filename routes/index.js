@@ -3,6 +3,7 @@ var router = express.Router();
 var pool = require('./db.js');
 var fs = require('fs');
 var multiparty = require('multiparty');
+const crypto = require('crypto');
 
 
 router.get('/', function(req, res, next) {
@@ -83,5 +84,15 @@ router.get('/adminUserList', function(req, res, next) {
   });
 });
 
+router.post('/submitSignup', function(req, res, next) {
+  req.body.password = crypto.createHash('sha512').update(req.body.password).digest('base64');
+  pool.getConnection(function(err,connection){
+    connection.query(`INSERT INTO users VALUES ('${req.body.id}','${req.body.name}','${req.body.password}',0);`, function (err, rows) {
+      console.log(req.body);
+      res.redirect('/');
+      connection.release();
+    });
+  });
+});
 
 module.exports = router; 
