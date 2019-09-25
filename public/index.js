@@ -6,18 +6,28 @@ const _$ = (selector, base = document) => base.querySelector(selector);
 const _$$ = (selector, base = document) => base.querySelectorAll(selector);
 
 let mini = new miniCarousel("mini-list","mini-carousel","15");
+let mainBottom = new mainBottomCarousel("main-list","main-carousel-bottom","60");
+let mainCard =  new card("main-carousel-top","main-carousel-top-card-center");
+
+const mainCarouselTop = _$(".main-carousel-top");
+
 _$(".mini-list").innerHTML = mini.render();
 mini.run();
 
-let mainBottom = new mainBottomCarousel("main-list","main-carousel-bottom","60");
-_$(".main-list").innerHTML = mainBottom.render();
-
-let mainCard =  new card("main-carousel-top","main-carousel-top-card-center");
-const mainCarouselTop = _$(".main-carousel-top");
 mainCarouselTop.innerHTML = mainCard.render();  
 _$(".main-carousel-top-card-center",mainCarouselTop).click();
 
-mainBottom.subscribe(mainCard);
-mainCard.subscribe(mainBottom);
+(async function(){
+    let obj = await fetch('/MainCarouselList')
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        return data;
+    })
+    _$(".main-list").innerHTML = await mainBottom.render(obj);
+    await mainBottom.subscribe(mainCard);
+    await mainCard.subscribe(mainBottom);
 
-_$(".main-carousel-top-button").click();
+    _$(".main-carousel-top-button").click();
+})()

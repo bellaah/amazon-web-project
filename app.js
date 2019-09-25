@@ -4,7 +4,7 @@ var path            = require('path');
 var logger          = require('morgan');
 var sassMiddleware  = require('node-sass-middleware');
 var indexRouter     = require('./routes/index');
-var db              = require('./db.js');
+var db              = require('./routes/db.js');
 var app             = express();
 
 app.set('views', path.join(__dirname, 'views'));

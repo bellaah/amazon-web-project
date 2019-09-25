@@ -31,20 +31,21 @@ nav{
 }
 
 section{
-    margin-top: 1rem;
+    margin: 1rem;
+    border: 1px solid;
     .category{
         font-size: 0.7rem;
-        height: 10rem;
+        display: flex;
         overflow: scroll;
         li{
             display: flex;
-            height: 5rem;
+            flex-direction: column;
+            width: min-content;
             border: 0.5px solid lightgray;
+            margin: 0.1rem;
+            padding: 0.1rem;
             img{
                 width: 20rem;
-            }
-            .main-text{
-                height: auto;
             }
         }
     }

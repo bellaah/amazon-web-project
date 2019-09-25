@@ -1,4 +1,3 @@
-import data  from '../data/bottomData.js';
 import slide  from './slide.js';
 class mainCarousel extends slide{
     constructor(parentName,carouselName,width){
@@ -56,21 +55,27 @@ class mainCarousel extends slide{
     }
 
 
-    render(){
+    render(list){
         let childHTML = "";
-        data.forEach((obj,idx) => {
-            childHTML += `
-<li id="bottom-${idx}" class="${obj.title}-li" style="background: url(${obj.image}); background-size: contain; background-position-x: -5rem;">
+        let count=0;
+        let category = ["ship","stream","shop","read","more"];
+        for(let i=0; i<category.length; i++){
+            list.forEach(obj => {
+                if(obj.category === category[i]){
+                    childHTML += `
+<li id="bottom-${count++}" class="${obj.title}-li" style="background: url(${obj.image}); background-size: contain; background-position-x: -5rem;">
     <div class="main-text">
-        <span class="main-text-title category-${obj.category}">${obj.title}</span><br/>
-        <span class="main-text-header">${obj.head}</span>
-        <div class="main-text-description">${obj.body}</div>
+        <span class="main-text-title category-${obj.category}">${obj.keyword}</span><br/>
+        <span class="main-text-header">${obj.title}</span>
+        <div class="main-text-description">${obj.description}</div>
         <a class="main-text-link" href=${obj.link}>
             ${obj.tail} &#9656;
         </a>
     </div>
 </li>`
-    });
+                }
+        });
+    }
         return childHTML;
     }
 }

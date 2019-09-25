@@ -1,4 +1,3 @@
-import data  from '../data/bottomData.js';
 
 function itemRender(category){
     let childHTML = "";
