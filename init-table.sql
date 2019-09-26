@@ -10,9 +10,9 @@ admin int(2),
 PRIMARY KEY(user_id)
 );
 
-INSERT INTO users VALUES ('user1', 'user1', '1111', 0);
-INSERT INTO users VALUES ('admin1', 'admin1', '1111', 10);
-INSERT INTO users VALUES ('superAdmin', 'superAdmin', '1111', 99);
+INSERT INTO users VALUES ('user1', 'user1', 'MydaiqSOqRi9U6kYGql18Vqw0GRTmPWRigBtCGdcHLJ9XGRdvQhO7lbmdeJbpAGfLs6jfKnimVtJ/LEsCWoDLg==', 0);
+INSERT INTO users VALUES ('admin1', 'admin1', 'MydaiqSOqRi9U6kYGql18Vqw0GRTmPWRigBtCGdcHLJ9XGRdvQhO7lbmdeJbpAGfLs6jfKnimVtJ/LEsCWoDLg==', 10);
+INSERT INTO users VALUES ('superAdmin', 'superAdmin', 'MydaiqSOqRi9U6kYGql18Vqw0GRTmPWRigBtCGdcHLJ9XGRdvQhO7lbmdeJbpAGfLs6jfKnimVtJ/LEsCWoDLg==', 99);
 
 CREATE TABLE main_list(
 seq int(10) NOT NULL AUTO_INCREMENT,

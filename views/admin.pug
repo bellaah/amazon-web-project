@@ -29,7 +29,7 @@ section
   .category.more-div
 .item-insert-div
   h2 ITEM &#xCD94;&#xAC00;
-  form.item-insert-form(action='/addItem' method='POST')
+  form.item-insert-form(action='/addItem' method='POST' enctype='multipart/form-data')
     label(for='jb-input-text') keyword
     textarea(type='text' name='keyword')
     label(for='jb-input-text') title
@@ -41,7 +41,12 @@ section
     label(for='jb-input-text') link
     textarea(type='text' name='link')
     label(for='jb-input-text') category
-    textarea(type='text' name='category')
+    select(name='category')
+      option(value='ship') ship
+      option(value='stream') stream
+      option(value='shop') shop
+      option(value='read') read
+      option(value='more') more
     label(for='jb-input-text') image
     input(type='file' name='image')
     input(type='submit')

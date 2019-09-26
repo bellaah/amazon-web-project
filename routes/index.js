@@ -4,7 +4,7 @@ var pool = require('./db.js');
 var fs = require('fs');
 var multer = require('multer')
 const crypto = require('crypto');
-
+console.log(crypto.createHash('sha512').update("1111").digest('base64'));
 
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -46,27 +46,30 @@ router.post('/checkAdmin', function(req, res, next) {
   });
 });
 
-router.post('/addItem', function(req, res, next) {
-  console.log(req.body);
-  // let form = new multiparty.Form();
-  // form.on('part', function(part) {
-  //   if (!part.filename) {
-  //     console.log('got field named ' + part.name);
-  //     part.resume();
-  //   }
-  // });
-  
-
-  // // fs.writeFile('text1.txt', data, 'utf8', function(error){
-  // //    console.log('write end') 
-  // //   });
-  // pool.getConnection(function(err,connection){
-    
-  //   res.send("success");
-  // });
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'public/static_root/');
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.originalname);
+    }
+  }),
 });
 
-//하단 케로셀의 data를  db에서 꺼내서 넘겨주는 API
+router.post('/addItem', upload.single('image'), (req, res) => {
+  pool.getConnection(function(err,connection){
+    connection.query(`INSERT INTO main_list (image,keyword,title,description,tail,link,category) 
+    VALUES ('../../static_root/${req.file.originalname}','${req.body.keyword}','${req.body.title}','${req.body.description}',
+    '${req.body.tail}','${req.body.link}','${req.body.category}')`, function (err, rows) {
+      if(err)
+        console.log(err);
+      connection.release();
+    });
+  });
+  res.redirect('/admin');
+});
+
 router.get('/MainCarouselList', function(req, res, next) {
   pool.getConnection(function(err,connection){
     connection.query('SELECT * from main_list', function (err, rows) {
@@ -79,7 +82,6 @@ router.get('/MainCarouselList', function(req, res, next) {
   });
 });
 
-// admin 페이지에 사용자 data를 넘겨주는 API
 router.get('/adminUserList', function(req, res, next) {
   pool.getConnection(function(err,connection){
     connection.query('SELECT * from users', function (err, rows) {
@@ -102,5 +104,4 @@ router.post('/submitSignup', function(req, res, next) {
     });
   });
 });
-
 module.exports = router; 

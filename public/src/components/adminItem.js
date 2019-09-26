@@ -6,7 +6,7 @@ const itemRender = (category) =>{
     list.forEach(obj => {
         if(obj.category === category){
             childHTML += `
-<li id="bottom-${count}">
+<li id="bottom-${count++}">
     <img src=${obj.image}></img>
     <div class="main-text">
         <span class="main-text-title category-${obj.category}">keyword:${obj.keyword}</span><br/>
@@ -27,7 +27,7 @@ const removeBtnListener = () => {
     let deleteBtnList = document.querySelectorAll(".delete-btn");
     deleteBtnList.forEach(elem => {
         elem.addEventListener("click",(evt)=>{ 
-            console.log(elem.id.split("-")[2]);
+            elem.parentElement.parentElement.style.display = "none";
             fetch('/removeItem', {
                 method: 'POST',
                 headers: {
