@@ -8,6 +8,10 @@ nav{
     background-color:#232f3e;
 }
 
+p{
+    align-self: center;
+}
+
 nav ul{
     list-style: none;
     display: flex;  
@@ -59,8 +63,14 @@ section{
     color: white;
 }
 
+input[type="submit"]{
+    margin: 0.5rem;
+    width: fit-content;
+    align-self: flex-end;
+}
+
 .save-btn{
-    margin: 0.2rem 1rem;
+    margin: 0.2rem 0.5rem;
     width: fit-content;
     align-self: flex-end;
 }

@@ -1,17 +1,7 @@
 
 let list;
-(async function(){
-    list = await fetch('/adminUserList')
-    .then((res) => {
-        return res.json();
-    })
-    .then((data) => {
-        return data;
-    })
-    document.querySelector(".user-table").innerHTML = itemRender(list);
-})()
 
-function itemRender(list){
+const itemRender = (list) => {
     let childHTML = "";
     list.forEach(obj => {
         if(obj.admin < 99){
@@ -27,11 +17,11 @@ function itemRender(list){
     return childHTML;
 }
 
-function isAdmin(adminNumber,userID){
+const isAdmin = (adminNumber,userID) => {
     return adminNumber >= 10 ? `<td><input id="${userID}" type="checkbox" checked/></td>` : `<td><input id="${userID}" type="checkbox"/></td>`;
 }
 
-function checkAdminListener(){
+const checkAdminListener = () => {
     let saveBtn = document.querySelector(".save-btn");
     saveBtn.addEventListener("click",(evt)=>{
         fetch('/checkAdmin', {
@@ -45,7 +35,7 @@ function checkAdminListener(){
     });
 }
 
-function matchIdAndCheckbox(){
+const matchIdAndCheckbox = () => {
     let idCheckboxList = [];
     let userList = document.querySelectorAll("tbody > tr");
     userList.forEach(elem => {
@@ -58,4 +48,14 @@ function matchIdAndCheckbox(){
     return idCheckboxList;
 }
 
-checkAdminListener();
+(async() => {
+    list = await fetch('/adminUserList')
+    .then((res) => {
+        return res.json();
+    })
+    .then((data) => {
+        return data;
+    })
+    document.querySelector(".user-table").innerHTML = itemRender(list);
+    checkAdminListener();
+})()

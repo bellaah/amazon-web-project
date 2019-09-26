@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var pool = require('./db.js');
 var fs = require('fs');
-var multiparty = require('multiparty');
+var multer = require('multer')
 const crypto = require('crypto');
 
 
@@ -26,6 +26,14 @@ router.get('/adminUser', function(req, res, next) {
   res.render('adminUser');
 });
 
+router.post('/removeItem', function(req, res, next) {
+  pool.getConnection(function(err,connection){
+      connection.query(`DELETE FROM main_list WHERE seq = ${parseInt(req.body.seq)}`, function (err, rows) {
+        connection.release();
+      });
+    res.send("success");
+  });
+});
 
 router.post('/checkAdmin', function(req, res, next) {
   pool.getConnection(function(err,connection){
@@ -38,7 +46,7 @@ router.post('/checkAdmin', function(req, res, next) {
   });
 });
 
-router.post('/addDataList', function(req, res, next) {
+router.post('/addItem', function(req, res, next) {
   console.log(req.body);
   // let form = new multiparty.Form();
   // form.on('part', function(part) {
