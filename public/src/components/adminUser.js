@@ -24,7 +24,7 @@ const isAdmin = (adminNumber,userID) => {
 const checkAdminListener = () => {
     let saveBtn = document.querySelector(".save-btn");
     saveBtn.addEventListener("click",(evt)=>{
-        fetch('/checkAdmin', {
+        fetch('/admin/check', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,13 +49,14 @@ const matchIdAndCheckbox = () => {
 }
 
 (async() => {
-    list = await fetch('/adminUserList')
+    list = await fetch('/admin/userList')
     .then((res) => {
         return res.json();
     })
     .then((data) => {
         return data;
     })
+    console.log(list);
     document.querySelector(".user-table").innerHTML = itemRender(list);
     checkAdminListener();
 })()

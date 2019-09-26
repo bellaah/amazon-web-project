@@ -11,7 +11,7 @@ nav
     li
       a(href='/admin') ITEM
     li
-      a(href='/adminUser') USERS
+      a(href='/admin/user') USERS
 section
   p  SHIP 
   .category.ship-div
@@ -29,7 +29,7 @@ section
   .category.more-div
 .item-insert-div
   h2 ITEM &#xCD94;&#xAC00;
-  form.item-insert-form(action='/addItem' method='POST' enctype='multipart/form-data')
+  form.item-insert-form(action='/admin/addItem' method='POST' enctype='multipart/form-data')
     label(for='jb-input-text') keyword
     textarea(type='text' name='keyword')
     label(for='jb-input-text') title
@@ -50,4 +50,4 @@ section
     label(for='jb-input-text') image
     input(type='file' name='image')
     input(type='submit')
-script(type='module' src='./src/components/adminItem.js')
+script(type='module' src='/src/components/adminItem.js')

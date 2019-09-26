@@ -28,7 +28,7 @@ const removeBtnListener = () => {
     deleteBtnList.forEach(elem => {
         elem.addEventListener("click",(evt)=>{ 
             elem.parentElement.parentElement.style.display = "none";
-            fetch('/removeItem', {
+            fetch('/admin/removeItem', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
