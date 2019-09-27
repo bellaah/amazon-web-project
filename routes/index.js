@@ -3,8 +3,13 @@ var router = express.Router();
 var pool = require('./db.js');
 const crypto = require('crypto');
 var session = require('express-session');
+var redis = require('redis');
+var redisStore = require('connect-redis')(session);
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
+
+
+var client = redis.createClient(6379,'localhost');
 
 router.use(session(
   {
@@ -12,15 +17,19 @@ router.use(session(
       cookie: {
         secure: false
       },
+      store: new redisStore({
+        client : client,
+        ttl : 260
+      }),
       saveUninitialized: false, 
-      resave: false 
+      resave: false
   }
 ));
 router.use(passport.initialize());
 router.use(passport.session());
 
 passport.serializeUser(function(user, done) {
-  console.log("serializeUser", user);
+  console.log("serializeUser", user.id);
   done(null, user);
 });
 
@@ -56,6 +65,23 @@ router.post('/user/signIn',
     failureRedirect: '/signIn'
   })
 );
+
+router.get('/admin',function(req, res, next) {
+  // console.log(req.session.passport.user.admin);
+  if(req.isAuthenticated() && req.session.passport.user.admin >= 10){
+    res.render('admin');
+  }else{
+    res.redirect('/');
+  }
+});
+
+router.get('/admin/user', function(req, res, next) {
+  if(req.isAuthenticated() && req.session.passport.user.admin >= 10){
+    res.render('adminUser');
+  }else{
+    res.redirect('/');
+  }
+});
 
 
 router.get('/', function(req, res, next) {
