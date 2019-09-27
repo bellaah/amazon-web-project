@@ -3,6 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
 </p>
 
+### 배포: http://101.101.167.247:3000/
 ## directory tree
 ```
 .
