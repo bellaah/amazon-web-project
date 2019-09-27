@@ -5,5 +5,8 @@ header.addEventListener("click",(evt)=>{
         window.location.href = '/signIn';
     }else if(evt.target.className === "sign-up-btn"){
         window.location.href = '/signUp';
+    }else if(evt.target.className === "log-out-btn"){
+        window.location.href = '/logOut';
     }
 });
+

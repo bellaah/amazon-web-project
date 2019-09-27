@@ -15,8 +15,12 @@ const upload = multer({
 });
 
 router.get('/', function(req, res, next) {
+    // if(req.isAuthenticated()){
+    //     res.render('/admin');
+    // }
+    // res.redirect('/');
     res.render('admin');
-});
+  });
 
 router.get('/user', function(req, res, next) {
     res.render('adminUser');

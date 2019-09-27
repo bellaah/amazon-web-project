@@ -7,6 +7,7 @@ var indexRouter     = require('./routes/index');
 var adminRouter     = require('./routes/admin');
 var db              = require('./routes/db');
 var app             = express();
+var flash           = require('connect-flash');
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

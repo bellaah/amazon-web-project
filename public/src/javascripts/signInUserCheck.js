@@ -5,7 +5,7 @@ const isUser = () => {
 
     axios({
         method: 'post',
-        url: '/dbCheck/userCheck',
+        url: '/user/signIn',
         data: {
           id: idInput.value,
           password: pwdInput.value
@@ -13,7 +13,14 @@ const isUser = () => {
     }).then(res => {
         if(res.data){
             errorMsg.style.display = 'none';
-            document.forms[0].submit();
+            axios({
+                method: 'post',
+                url: '/insertSession',
+                data: {
+                  id : idInput.value
+                }
+            });
+            window.location.href = '/';
         }else{
             errorMsg.style.display = 'inline';
         }

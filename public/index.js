@@ -18,7 +18,7 @@ mainCarouselTop.innerHTML = mainCard.render();
 _$(".main-carousel-top-card-center",mainCarouselTop).click();
 
 (async function(){
-    let obj = await fetch('/MainCarouselList')
+    let obj = await fetch('/mainCarouselList')
     .then((res) => {
         return res.json();
     })
@@ -30,4 +30,16 @@ _$(".main-carousel-top-card-center",mainCarouselTop).click();
     await mainCard.subscribe(mainBottom);
 
     _$(".main-carousel-top-button").click();
+
+    const header = _$("header");
+    fetch('/checkSession')
+    .then((res) => {
+    //    if(res.body){
+    //         header.querySelector(".log-out-btn").style.display = "flex";
+    //         header.querySelector(".sign-in-btn").style.display = "none";
+    //    }else{
+    //         header.querySelector(".log-out-btn").style.display = "none";
+    //         header.querySelector(".sign-in-btn").style.display = "flex";
+    //    }
+    })
 })()

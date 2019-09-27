@@ -41,7 +41,7 @@ const removeBtnListener = () => {
 }
 
 (async() => {
-    list = await fetch('/MainCarouselList')
+    list = await fetch('/mainCarouselList')
     .then((res) => {
         return res.json();
     })
