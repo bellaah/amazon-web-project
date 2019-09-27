@@ -9,27 +9,28 @@
 ├── bin                     
 ├── docs                    # Documentation files
 ├── public                  # frontend
-│   ├── images              # icon images
-│   ├── src                 # Source files
+│   ├── images              # icon images 
+│   ├── src                 # source files
 │   │   ├── components      # component class
 │   │   ├── data            # json data
-│   │   └── javascripts     
-│   └── stylesheets
+│   │   └── javascripts 
+│   ├── static_root         # image for main carousel
+│   └── stylesheets  
 │       ├── css
-│       └── scss            
+│       └── scss        
 ├── routes
 └── views
 ```
 ## Install
 
 ```sh
-npm node-sass-middleware
+npm install
 ```
 
 ## Usage
 
 ```sh
-npm run start
+npm start
 ```
 
 ## Author

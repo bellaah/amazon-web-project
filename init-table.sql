@@ -5,7 +5,7 @@ use amazon;
 CREATE TABLE users(
     user_id varchar(20),
     user_name varchar(20),
-    password varchar(16),
+    password varchar(100),
     admin int(2),
     PRIMARY KEY(user_id)
 );
