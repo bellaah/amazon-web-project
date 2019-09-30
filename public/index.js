@@ -34,12 +34,13 @@ _$(".main-carousel-top-card-center",mainCarouselTop).click();
     const header = _$("header");
     fetch('/checkSession')
     .then((res) => {
-    //    if(res.body){
-    //         header.querySelector(".log-out-btn").style.display = "flex";
-    //         header.querySelector(".sign-in-btn").style.display = "none";
-    //    }else{
-    //         header.querySelector(".log-out-btn").style.display = "none";
-    //         header.querySelector(".sign-in-btn").style.display = "flex";
-    //    }
+        console.log(res.body.locked)
+       if(res.body.locked){
+            header.querySelector(".log-out-btn").style.display = "flex";
+            header.querySelector(".sign-in-btn").style.display = "none";
+       }else{
+            header.querySelector(".log-out-btn").style.display = "none";
+            header.querySelector(".sign-in-btn").style.display = "flex";
+       }
     })
 })()

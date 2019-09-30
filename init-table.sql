@@ -1,5 +1,3 @@
-CREATE database amazon;
-
 use amazon;
 
 CREATE TABLE users(

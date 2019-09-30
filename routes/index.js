@@ -29,12 +29,10 @@ router.use(passport.initialize());
 router.use(passport.session());
 
 passport.serializeUser(function(user, done) {
-  console.log("serializeUser", user.id);
   done(null, user);
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log("deserializeUser", user.id);
   done(null , user);
 });
 
@@ -43,12 +41,10 @@ passport.use(new LocalStrategy(
     usernameField: 'id',
     passwordField: 'password'
   },function(username, password, done) {
-    console.log("local", username, password);
     password = crypto.createHash('sha512').update(password).digest('base64');
     pool.getConnection(function(err,connection){
         connection.query(`SELECT * from users WHERE user_id = '${username}' AND password = '${password}';`, function (err, rows) {
           connection.release();
-          console.log(rows);
           if(rows.length === 0){
             return done(null, false, { message: '아이디와 비밀번호를 확인해주세요.' });
           }else{
@@ -67,8 +63,7 @@ router.post('/user/signIn',
 );
 
 router.get('/admin',function(req, res, next) {
-  // console.log(req.session.passport.user.admin);
-  if(req.isAuthenticated() && req.session.passport.user.admin >= 10){
+  if(req.isAuthenticated() && req.siession.passport.user.admin >= 10){
     res.render('admin');
   }else{
     res.redirect('/');
@@ -105,6 +100,7 @@ router.get('/logOut', function(req, res, next) {
 });
 
 router.get('/checkSession', function(req, res, next) {
+  console.log(req.isAuthenticated());
   res.send(req.isAuthenticated());
 });
 
